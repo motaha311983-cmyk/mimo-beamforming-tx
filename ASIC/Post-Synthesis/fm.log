@@ -1,0 +1,275 @@
+
+                                 Formality (R)
+
+               Version L-2016.03-SP1 for linux64 - Apr 13, 2016 
+
+                    Copyright (c) 1988 - 2016 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+  ** Highlights of Formality (R) Version L-2016.03 **
+   - New alternate verification strategies for resolving inconclusive verifications
+   - Automation for deploying alternate strategies
+   - New command to export the mapping of reference to implementation registers
+   - New capability to combine PG and low power information from db libraries with Verilog functional models
+
+   * Please refer to the Formality Release Notes for details and additional enhancements
+
+Build: 4031317
+Hostname: IC (RHEL64)
+Current time: Mon Jun 29 23:42:17 2026
+
+Loading db file '/opt/Synopsys/Formality2016/libraries/syn/gtech.db'
+###################################################################
+########################### Variables #############################
+###################################################################
+set SSLIB "/home/IC/chain_test/std_cells/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db"
+/home/IC/chain_test/std_cells/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db
+set TTLIB "/home/IC/chain_test/std_cells/scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db"
+/home/IC/chain_test/std_cells/scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db
+set FFLIB "/home/IC/chain_test/std_cells/scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db"
+/home/IC/chain_test/std_cells/scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db
+###################################################################
+############################ Guidance #############################
+###################################################################
+# Synopsys setup variable
+set synopsys_auto_setup true
+true
+# Formality Setup File
+set_svf "/home/IC/chain_test/syn/chain.svf"
+SVF set to '/home/IC/chain_test/syn/chain.svf'.
+1
+###################################################################
+###################### Reference Container ########################
+###################################################################
+# Read Reference Design Verilog Files
+read_verilog -container Ref "/home/IC/chain_test/RTL/chain.v"
+No target library specified, default is WORK
+Initializing DesignWare ...
+Initialization Complete
+Loading verilog file '/home/IC/chain_test/RTL/chain.v'
+Created container 'Ref'
+Current container set to 'Ref'
+1
+read_verilog -container Ref "/home/IC/chain_test/RTL/ClkDiv.v"
+No target library specified, default is WORK
+Loading verilog file '/home/IC/chain_test/RTL/ClkDiv.v'
+1
+read_verilog -container Ref "/home/IC/chain_test/RTL/comb.v"
+No target library specified, default is WORK
+Loading verilog file '/home/IC/chain_test/RTL/comb.v'
+1
+read_verilog -container Ref "/home/IC/chain_test/RTL/counter_1bit.v"
+No target library specified, default is WORK
+Loading verilog file '/home/IC/chain_test/RTL/counter_1bit.v'
+1
+read_verilog -container Ref "/home/IC/chain_test/RTL/counter_2bit.v"
+No target library specified, default is WORK
+Loading verilog file '/home/IC/chain_test/RTL/counter_2bit.v'
+1
+read_verilog -container Ref "/home/IC/chain_test/RTL/DUC.v"
+No target library specified, default is WORK
+Loading verilog file '/home/IC/chain_test/RTL/DUC.v'
+1
+read_verilog -container Ref "/home/IC/chain_test/RTL/HFB_Comb4_Comb4.v"
+No target library specified, default is WORK
+Loading verilog file '/home/IC/chain_test/RTL/HFB_Comb4_Comb4.v'
+1
+read_verilog -container Ref "/home/IC/chain_test/RTL/mux4_to_1.v"
+No target library specified, default is WORK
+Loading verilog file '/home/IC/chain_test/RTL/mux4_to_1.v'
+1
+read_verilog -container Ref "/home/IC/chain_test/RTL/up_sample_2.v"
+No target library specified, default is WORK
+Loading verilog file '/home/IC/chain_test/RTL/up_sample_2.v'
+1
+read_verilog -container Ref "/home/IC/chain_test/RTL/segma_1.v"
+No target library specified, default is WORK
+Loading verilog file '/home/IC/chain_test/RTL/segma_1.v'
+1
+# Read Reference technology libraries
+read_db -container Ref [list $SSLIB $TTLIB $FFLIB]
+Loading db file '/home/IC/chain_test/std_cells/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db'
+Loading db file '/home/IC/chain_test/std_cells/scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db'
+Loading db file '/home/IC/chain_test/std_cells/scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db'
+1
+# set the top Reference Design 
+set_reference_design MIMO
+Reference design set to 'Ref:/WORK/MIMO'
+1
+set_top MIMO
+Setting top design to 'Ref:/WORK/MIMO'
+Status:   Elaborating design MIMO   ...  
+Status:   Elaborating design ClkDiv   ...  
+Status:   Elaborating design FIR   ...  
+Status:   Elaborating design hfb_1   ...  
+Status:   Elaborating design counter   ...  
+Status:   Elaborating design up4_filter   ...  
+Status:   Elaborating design counter2bit   ...  
+Status:   Elaborating design mux4to1   ...  
+Status:   Elaborating design segma   ...  
+Status:   Elaborating design DUC   ...  
+Status:  Implementing inferred operators...
+
+************ Library Checking Summary ************
+Warning:  3 unlinked power cell(s) with unread pg pins.
+        Use 'report_libraries -defects all' for more details.
+**************************************************
+
+Top design successfully set to 'Ref:/WORK/MIMO'
+Reference design set to 'Ref:/WORK/MIMO'
+1
+###################################################################
+#################### Implementation Container #####################
+###################################################################
+# Read Implementation Design Files
+read_verilog -container Imp -netlist "/home/IC/chain_test/syn/MIMO.v"
+No target library specified, default is WORK
+Loading verilog file '/home/IC/chain_test/syn/MIMO.v'
+Created container 'Imp'
+Current container set to 'Imp'
+1
+# Read Implementation technology libraries
+read_db -container Imp [list $SSLIB $TTLIB $FFLIB]
+Loading db file '/home/IC/chain_test/std_cells/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db'
+Loading db file '/home/IC/chain_test/std_cells/scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db'
+Loading db file '/home/IC/chain_test/std_cells/scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db'
+1
+# set the top Implementation Design
+set_implementation_design MIMO
+Implementation design set to 'Imp:/WORK/MIMO'
+1
+set_top MIMO
+Setting top design to 'Imp:/WORK/MIMO'
+Status:  Implementing inferred operators...
+
+************ Library Checking Summary ************
+Warning:  3 unlinked power cell(s) with unread pg pins.
+        Use 'report_libraries -defects all' for more details.
+**************************************************
+
+Top design successfully set to 'Imp:/WORK/MIMO'
+Implementation design set to 'Imp:/WORK/MIMO'
+1
+###################### Matching Compare points ####################
+match
+Reference design is 'Ref:/WORK/MIMO'
+Implementation design is 'Imp:/WORK/MIMO'
+Status:  Checking designs...
+    Warning: 0 (247) undriven nets found in reference (implementation) design; see formality2.log for list (FM-399)
+Status:  Building verification models...
+Status:  Processing Guide Commands...
+    Info:  Attempting to modify down-design of instance "uut1" from design "FIR_0" to design "FM_uniq_33".
+    Info:  Attempting to modify down-design of instance "uut1" from design "FM_uniq_33" to design "FIR_0".
+
+***************************** Guidance Summary *****************************
+                                         Status
+Command                 Accepted   Rejected  Unsupported  Unprocessed  Total
+----------------------------------------------------------------------------
+environment         :          2          0          0          0          2
+instance_map        :          9          0          0          0          9
+mark                :         12          0          0          0         12
+multiplier          :          8          0          0          0          8
+replace             :          5          0          0          0          5
+transformation
+   map              :        148          0          0          0        148
+   share            :          2          0          0          0          2
+   tree             :         26          0          0          0         26
+uniquify            :          1          9          0          0         10
+
+Note: If verification succeeds you can safely ignore unaccepted guidance commands.
+
+SVF files read:
+      /home/IC/chain_test/syn/chain.svf
+
+SVF files produced:
+  /home/IC/chain_test/post_syn_fm/formality2_svf/
+    svf.txt
+****************************************************************************
+
+Status:  Matching...
+    
+*********************************** Matching Results ***********************************    
+ 898 Compare points matched by name    
+ 0 Compare points matched by signature analysis    
+ 0 Compare points matched by topology    
+ 34 Matched primary inputs, black-box outputs    
+ 0(0) Unmatched reference(implementation) compare points    
+ 0(0) Unmatched reference(implementation) primary inputs, black-box outputs    
+****************************************************************************************
+
+1
+######################### Run Verification ########################
+set successful [verify]
+Reference design is 'Ref:/WORK/MIMO'
+Implementation design is 'Imp:/WORK/MIMO'
+    
+*********************************** Matching Results ***********************************    
+ 898 Compare points matched by name    
+ 0 Compare points matched by signature analysis    
+ 0 Compare points matched by topology    
+ 34 Matched primary inputs, black-box outputs    
+ 0(0) Unmatched reference(implementation) compare points    
+ 0(0) Unmatched reference(implementation) primary inputs, black-box outputs    
+****************************************************************************************
+
+Status:  Verifying...
+
+***************************** Synopsys Auto Setup Summary ******************************
+
+!!! Synopsys Auto Setup Mode was enabled. !!!
+!!! Verification results are valid assuming the following setup constraints: !!!
+
+### RTL Interpretation Setup
+   set hdlin_ignore_parallel_case false
+   set hdlin_ignore_full_case false
+   set hdlin_error_on_mismatch_message false
+   set hdlin_ignore_embedded_configuration true
+
+### Undriven Signal Handling Setup
+   set verification_set_undriven_signals synthesis
+
+### Test Logic Setup
+   set verification_verify_directly_undriven_output false
+   For details see report_dont_verify_points and report_constants
+
+
+For further details on Synopsys Auto Setup Mode: Type man synopsys_auto_setup
+****************************************************************************************
+
+
+********************************* Verification Results *********************************
+Verification SUCCEEDED
+   ATTENTION: synopsys_auto_setup mode was enabled.
+              See Synopsys Auto Setup Summary for details.
+----------------------------------------------------------
+ Reference design: Ref:/WORK/MIMO
+ Implementation design: Imp:/WORK/MIMO
+ 898 Passing compare points
+----------------------------------------------------------------------------------------
+Matched Compare Points     BBPin    Loop   BBNet     Cut    Port     DFF     LAT   TOTAL
+----------------------------------------------------------------------------------------
+Passing (equivalent)           0       0       0       0       1     897       0     898
+Failing (not equivalent)       0       0       0       0       0       0       0       0
+Not Compared
+  Constant reg                                                         5       0       5
+****************************************************************************************
+1
+if {!$successful} {
+diagnose
+analyze_points -failing
+}
+########################### Reporting ############################# 
+report_passing_points > "passing_points.rpt"
+report_failing_points > "failing_points.rpt"
+report_aborted_points > "aborted_points.rpt"
+report_unverified_points > "unverified_points.rpt"
+diagnose
+    Error: Diagnosis and analysis can only be performed after an unsucessful verification (FM-006)
+0
+analyze_points -failing
+    Error: Diagnosis and analysis can only be performed after an unsucessful verification (FM-006)
+0
+start_gui
