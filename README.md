@@ -1,71 +1,90 @@
 # MIMO Beamforming Transmit Chain
 
-## Project Overview
+An RTL-based digital MIMO Beamforming Transmit Chain designed and implemented as an ASIC-oriented engineering project using 130 nm CMOS technology.
 
-This project focuses on the design and implementation of a digital MIMO Beamforming Transmit Chain targeting ASIC implementation using 130 nm technology.
+The project covers digital signal processing, RTL design, functional verification, synthesis, DFT, and physical design implementation.
 
-The design operates with a target clock frequency of 400 MHz and integrates digital signal processing blocks for beamforming and signal transmission.
+## System Architecture
 
-## Main Architecture
-
-The transmit chain consists of the following stages:
+The transmit chain consists of the following main stages:
 
 1. I/Q Signal Generation
 2. Digital Phase Shifter
 3. Two-Stage Interpolation
-4. Sigma-Delta Modulator
+4. Sigma-Delta Modulation
 5. Digital Up-Conversion (DUC)
 
 ## Design Specifications
 
-- Target Technology: 130 nm CMOS
-- Target Operating Frequency: 400 MHz
-- Interpolation Oversampling Ratio (OSR): 32
-- Sigma-Delta Modulation: Second-order, 1-bit
-- Digital Up-Conversion Factor: 4
+| Parameter | Specification |
+|---|---|
+| Target Technology | 130 nm CMOS |
+| Target Clock Frequency | 400 MHz |
+| Oversampling Ratio (OSR) | 32 |
+| Sigma-Delta Modulator | Second-order, 1-bit |
+| DUC Factor | 4 |
 
-## Tools & Technologies
+## Design and Implementation
+
+### 1. RTL Design
+Verilog-based implementation of the main digital processing blocks.
+
+### 2. Functional Verification
+- Python Golden Reference Models.
+- Block-level UVM verification.
+- System-level functional verification.
+- MATLAB-based reference modeling and analysis.
+
+### 3. MATLAB Modeling
+MATLAB and Simulink models covering:
+- Signal chain modeling.
+- FIR and interpolation filter architectures.
+- Sigma-Delta architecture exploration.
+- Beam steering analysis.
+- SNR performance evaluation.
+
+### 4. ASIC Implementation
+The ASIC flow includes:
+
+- RTL Synthesis.
+- Post-Synthesis Formal Equivalence Checking.
+- Design for Testability (DFT).
+- Post-DFT Verification.
+- Physical Design (Place and Route).
+
+## Tools and Technologies
 
 - Verilog / SystemVerilog
-- MATLAB
+- Python
+- MATLAB / Simulink
 - ModelSim / QuestaSim
 - UVM
 - Synopsys Design Compiler
+- Synopsys Formality
 - Cadence SoC Encounter
-
-## Verification
-
-Functional verification was performed using simulation and UVM-based testbench development.
-
-MATLAB was used as a reference model for signal processing and performance evaluation.
-
-## ASIC Implementation
-
-The RTL design was taken through synthesis and physical implementation flow, targeting a 130 nm technology.
-
-## Project Results
-
-Performance evaluation included:
-
-- Signal-to-Noise Ratio (SNR)
-- Functional simulation results
-- Synthesis results
-- Timing analysis
-- Physical implementation results
-
-Detailed results and supporting documentation will be added as the project files are organized.
 
 ## Repository Structure
 
-```text
-mimo-beamforming-tx/
-├── rtl/
-├── verification/
-├── matlab/
-├── results/
-├── docs/
-└── README.md
-```
+| Directory | Description |
+|---|---|
+| [rtl/](rtl/) | RTL source files |
+| [verification/](verification/) | UVM, system-level verification, and Python reference models |
+| [matlab/](matlab/) | MATLAB and Simulink models and performance analysis |
+| [ASIC/](ASIC/) | Synthesis, DFT, and physical design implementation |
+| [docs/](docs/) | Project visual documentation |
+
+## Project Results
+
+The repository includes supporting reports and simulation results covering:
+
+- Signal-to-Noise Ratio (SNR) analysis across the signal chain.
+- MATLAB/Simulink simulation results.
+- Synthesis reports.
+- Formal equivalence verification.
+- DFT implementation reports.
+- Physical design and timing analysis reports.
+
+The implementation reports document the actual results of the design flow.
 
 ## Author
 
@@ -73,4 +92,4 @@ mimo-beamforming-tx/
 
 Communication and Electronics Engineer
 
-**Interests:** Digital IC Design, RTL Design, ASIC Implementation, Digital Verification.
+Interests: Digital IC Design, RTL Design, ASIC Implementation, and Digital Verification.
