@@ -1,0 +1,40 @@
+ 
+****************************************
+Report : clocks
+Design : MIMO
+Version: K-2015.06
+Date   : Fri Jul  3 00:12:13 2026
+****************************************
+
+Attributes:
+    d - dont_touch_network
+    f - fix_hold
+    p - propagated_clock
+    G - generated_clock
+    g - lib_generated_clock
+
+Clock          Period   Waveform            Attrs     Sources
+--------------------------------------------------------------------------------
+CLK_4           10.00   {0 5}               G d       {gen_4/o_div_clk}
+CLK_16          40.00   {0 20}              G d       {gen16/o_div_clk}
+CLK_64         160.00   {0 80}              G d       {gen64/o_div_clk}
+CLK_128        320.00   {0 160}             G d       {gen128/o_div_clk}
+CLK_SEGMA       10.00   {0 5}               G d       {gen4/o_div_clk}
+REF_CLK          2.50   {0 1.25}            d         {clk}
+--------------------------------------------------------------------------------
+
+Generated     Master         Generated      Master         Waveform
+Clock         Source         Source         Clock          Modification
+--------------------------------------------------------------------------------
+CLK_4         clk            {gen_4/o_div_clk}
+                                            REF_CLK        divide_by(4)
+CLK_16        clk            {gen16/o_div_clk}
+                                            REF_CLK        divide_by(16)
+CLK_64        clk            {gen64/o_div_clk}
+                                            REF_CLK        divide_by(64)
+CLK_128       clk            {gen128/o_div_clk}
+                                            REF_CLK        divide_by(128)
+CLK_SEGMA     clk            {gen4/o_div_clk}
+                                            REF_CLK        divide_by(4)
+--------------------------------------------------------------------------------
+1
