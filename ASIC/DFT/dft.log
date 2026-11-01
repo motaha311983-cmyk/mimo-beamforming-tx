@@ -1,0 +1,3030 @@
+                                        
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+                                        
+                 Version K-2015.06 for linux64 - May 28, 2015 
+                                        
+                    Copyright (c) 1988 - 2015 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+Initializing gui preferences from file  /home/IC/.synopsys_dv_prefs.tcl
+########################### Define Top Module ############################
+set top_module MIMO
+MIMO
+set_svf  chain.svf
+1
+##################### Define Working Library Directory ######################
+define_design_lib work -path ./work
+1
+################## Design Compiler Library Files #setup ######################
+lappend search_path /home/IC/chain_test/std_cells
+. /opt/Synopsys/Synplify2015/libraries/syn /opt/Synopsys/Synplify2015/minpower/syn /opt/Synopsys/Synplify2015/dw/syn_ver /opt/Synopsys/Synplify2015/dw/sim_ver /home/IC/chain_test/std_cells
+lappend search_path /home/IC/chain_test/RTL_dft
+. /opt/Synopsys/Synplify2015/libraries/syn /opt/Synopsys/Synplify2015/minpower/syn /opt/Synopsys/Synplify2015/dw/syn_ver /opt/Synopsys/Synplify2015/dw/sim_ver /home/IC/chain_test/std_cells /home/IC/chain_test/RTL_dft
+set SSLIB "scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db"
+scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db
+set TTLIB "scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db"
+scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db
+set FFLIB "scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db"
+scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db
+set target_library [list $SSLIB $TTLIB $FFLIB]
+scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db
+set link_library [list * $SSLIB $TTLIB $FFLIB]  
+* scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db
+######################## Reading RTL Files #################################
+analyze -format verilog [glob /home/IC/chain_test/RTL_dft/*.v]
+Running PRESTO HDLC
+Compiling source file /home/IC/chain_test/RTL_dft/up_sample_2.v
+Compiling source file /home/IC/chain_test/RTL_dft/counter_2bit.v
+Compiling source file /home/IC/chain_test/RTL_dft/counter_1bit.v
+Compiling source file /home/IC/chain_test/RTL_dft/clk_en.v
+Compiling source file /home/IC/chain_test/RTL_dft/DUC.v
+Compiling source file /home/IC/chain_test/RTL_dft/mux4_to_1.v
+Compiling source file /home/IC/chain_test/RTL_dft/mux2X1.v
+Compiling source file /home/IC/chain_test/RTL_dft/HFB_Comb4_Comb4.v
+Compiling source file /home/IC/chain_test/RTL_dft/segma_1.v
+Compiling source file /home/IC/chain_test/RTL_dft/phase_shifter.v
+Compiling source file /home/IC/chain_test/RTL_dft/comb_4.v
+Compiling source file /home/IC/chain_test/RTL_dft/chain.v
+Compiling source file /home/IC/chain_test/RTL_dft/ClkDiv.v
+Presto compilation completed successfully.
+Loading db file '/home/IC/chain_test/std_cells/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db'
+Loading db file '/home/IC/chain_test/std_cells/scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db'
+Loading db file '/home/IC/chain_test/std_cells/scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db'
+1
+elaborate -lib work MIMO
+Loading db file '/opt/Synopsys/Synplify2015/libraries/syn/gtech.db'
+Loading db file '/opt/Synopsys/Synplify2015/libraries/syn/standard.sldb'
+  Loading link library 'scmetro_tsmc_cl013g_rvt_ss_1p08v_125c'
+  Loading link library 'scmetro_tsmc_cl013g_rvt_tt_1p2v_25c'
+  Loading link library 'scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'MIMO'.
+Information: Building the design 'mux2X1'. (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'ClkDiv'. (HDL-193)
+
+Inferred memory devices in process
+	in routine ClkDiv line 30 in file
+		'/home/IC/chain_test/RTL_dft/ClkDiv.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  odd_edge_tog_reg   | Flip-flop |   1   |  N  | N  | N  | Y  | N  | N  | N  |
+|     div_clk_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|      count_reg      | Flip-flop |   7   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'FIR'. (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'segma'. (HDL-193)
+
+Inferred memory devices in process
+	in routine segma line 22 in file
+		'/home/IC/chain_test/RTL_dft/segma_1.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      acc2_reg       | Flip-flop |  18   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    out_1bit_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|      acc1_reg       | Flip-flop |  18   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'DUC'. (HDL-193)
+
+Statistics for case statements in always block at line 11 in file
+	'/home/IC/chain_test/RTL_dft/DUC.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            24            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine DUC line 11 in file
+		'/home/IC/chain_test/RTL_dft/DUC.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     counter_reg     | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     SYS_out_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|      I_reg_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|      Q_reg_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'hfb_1'. (HDL-193)
+Warning:  /home/IC/chain_test/RTL_dft/up_sample_2.v:19: unsigned to signed assignment occurs. (VER-318)
+Warning:  /home/IC/chain_test/RTL_dft/up_sample_2.v:21: unsigned to signed assignment occurs. (VER-318)
+Warning:  /home/IC/chain_test/RTL_dft/up_sample_2.v:23: unsigned to signed assignment occurs. (VER-318)
+Warning:  /home/IC/chain_test/RTL_dft/up_sample_2.v:25: unsigned to signed assignment occurs. (VER-318)
+Warning:  /home/IC/chain_test/RTL_dft/up_sample_2.v:28: unsigned to signed assignment occurs. (VER-318)
+Warning:  /home/IC/chain_test/RTL_dft/up_sample_2.v:30: unsigned to signed assignment occurs. (VER-318)
+Warning:  /home/IC/chain_test/RTL_dft/up_sample_2.v:32: unsigned to signed assignment occurs. (VER-318)
+Warning:  /home/IC/chain_test/RTL_dft/up_sample_2.v:34: unsigned to signed assignment occurs. (VER-318)
+Warning:  /home/IC/chain_test/RTL_dft/up_sample_2.v:58: signed to unsigned part selection occurs. (VER-318)
+
+Inferred memory devices in process
+	in routine hfb_1 line 45 in file
+		'/home/IC/chain_test/RTL_dft/up_sample_2.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|        d_reg        | Flip-flop |  256  |  Y  | N  | Y  | N  | N  | N  | N  |
+|     odd_out_reg     | Flip-flop |  16   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    even_out_reg     | Flip-flop |  16   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'counter'. (HDL-193)
+
+Inferred memory devices in process
+	in routine counter line 7 in file
+		'/home/IC/chain_test/RTL_dft/counter_1bit.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|       SEL_reg       | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'up4_filter'. (HDL-193)
+Warning:  /home/IC/chain_test/RTL_dft/comb_4.v:23: unsigned to signed assignment occurs. (VER-318)
+Warning:  /home/IC/chain_test/RTL_dft/comb_4.v:24: unsigned to signed assignment occurs. (VER-318)
+Warning:  /home/IC/chain_test/RTL_dft/comb_4.v:25: unsigned to signed assignment occurs. (VER-318)
+Warning:  /home/IC/chain_test/RTL_dft/comb_4.v:26: unsigned to signed assignment occurs. (VER-318)
+Warning:  /home/IC/chain_test/RTL_dft/comb_4.v:45: signed to unsigned part selection occurs. (VER-318)
+Warning:  /home/IC/chain_test/RTL_dft/comb_4.v:46: signed to unsigned part selection occurs. (VER-318)
+Warning:  /home/IC/chain_test/RTL_dft/comb_4.v:47: signed to unsigned part selection occurs. (VER-318)
+Warning:  /home/IC/chain_test/RTL_dft/comb_4.v:48: signed to unsigned part selection occurs. (VER-318)
+
+Inferred memory devices in process
+	in routine up4_filter line 10 in file
+		'/home/IC/chain_test/RTL_dft/comb_4.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      x_n1_reg       | Flip-flop |  16   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      x_n3_reg       | Flip-flop |  16   |  Y  | N  | Y  | N  | N  | N  | N  |
+|      x_n2_reg       | Flip-flop |  16   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'counter2bit'. (HDL-193)
+
+Inferred memory devices in process
+	in routine counter2bit line 7 in file
+		'/home/IC/chain_test/RTL_dft/counter_2bit.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      count_reg      | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'mux4to1'. (HDL-193)
+Warning:  /home/IC/chain_test/RTL_dft/mux4_to_1.v:11: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
+
+Statistics for case statements in always block at line 10 in file
+	'/home/IC/chain_test/RTL_dft/mux4_to_1.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            11            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+1
+current_design $top_module
+Current design is 'MIMO'.
+{MIMO}
+link 
+
+  Linking design 'MIMO'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (11 designs)              /home/IC/chain_test/dft/MIMO.db, etc
+  scmetro_tsmc_cl013g_rvt_ss_1p08v_125c (library) /home/IC/chain_test/std_cells/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db
+  scmetro_tsmc_cl013g_rvt_tt_1p2v_25c (library) /home/IC/chain_test/std_cells/scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db
+  scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c (library) /home/IC/chain_test/std_cells/scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db
+
+1
+check_design
+ 
+****************************************
+check_design summary:
+Version:     K-2015.06
+Date:        Mon Jun 29 05:26:55 2026
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                      4
+    Unconnected ports (LINT-28)                                     4
+
+Cells                                                              58
+    Cells do not drive (LINT-1)                                     3
+    Connected to power or ground (LINT-32)                         45
+    Nets connected to multiple pins on same cell (LINT-33)         10
+--------------------------------------------------------------------------------
+
+Warning: In design 'ClkDiv', cell 'C120' does not drive any nets. (LINT-1)
+Warning: In design 'DUC', cell 'B_4' does not drive any nets. (LINT-1)
+Warning: In design 'counter2bit', cell 'B_0' does not drive any nets. (LINT-1)
+Warning: In design 'MIMO', port 'SI' is not connected to any nets. (LINT-28)
+Warning: In design 'MIMO', port 'SE' is not connected to any nets. (LINT-28)
+Warning: In design 'MIMO', port 'SO' is not connected to any nets. (LINT-28)
+Warning: In design 'FIR', port 'clk' is not connected to any nets. (LINT-28)
+Warning: In design 'MIMO', a pin on submodule 'gen4' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_clk_en' is connected to logic 1. 
+Warning: In design 'MIMO', a pin on submodule 'gen4' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[7]' is connected to logic 0. 
+Warning: In design 'MIMO', a pin on submodule 'gen4' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[6]' is connected to logic 0. 
+Warning: In design 'MIMO', a pin on submodule 'gen4' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[5]' is connected to logic 0. 
+Warning: In design 'MIMO', a pin on submodule 'gen4' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[4]' is connected to logic 0. 
+Warning: In design 'MIMO', a pin on submodule 'gen4' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[3]' is connected to logic 0. 
+Warning: In design 'MIMO', a pin on submodule 'gen4' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[2]' is connected to logic 1. 
+Warning: In design 'MIMO', a pin on submodule 'gen4' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[1]' is connected to logic 0. 
+Warning: In design 'MIMO', a pin on submodule 'gen4' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[0]' is connected to logic 0. 
+Warning: In design 'MIMO', a pin on submodule 'gen128' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_clk_en' is connected to logic 1. 
+Warning: In design 'MIMO', a pin on submodule 'gen128' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[7]' is connected to logic 1. 
+Warning: In design 'MIMO', a pin on submodule 'gen128' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[6]' is connected to logic 0. 
+Warning: In design 'MIMO', a pin on submodule 'gen128' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[5]' is connected to logic 0. 
+Warning: In design 'MIMO', a pin on submodule 'gen128' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[4]' is connected to logic 0. 
+Warning: In design 'MIMO', a pin on submodule 'gen128' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[3]' is connected to logic 0. 
+Warning: In design 'MIMO', a pin on submodule 'gen128' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[2]' is connected to logic 0. 
+Warning: In design 'MIMO', a pin on submodule 'gen128' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[1]' is connected to logic 0. 
+Warning: In design 'MIMO', a pin on submodule 'gen128' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[0]' is connected to logic 0. 
+Warning: In design 'MIMO', a pin on submodule 'gen16' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_clk_en' is connected to logic 1. 
+Warning: In design 'MIMO', a pin on submodule 'gen16' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[7]' is connected to logic 0. 
+Warning: In design 'MIMO', a pin on submodule 'gen16' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[6]' is connected to logic 1. 
+Warning: In design 'MIMO', a pin on submodule 'gen16' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[5]' is connected to logic 0. 
+Warning: In design 'MIMO', a pin on submodule 'gen16' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[4]' is connected to logic 0. 
+Warning: In design 'MIMO', a pin on submodule 'gen16' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[3]' is connected to logic 0. 
+Warning: In design 'MIMO', a pin on submodule 'gen16' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[2]' is connected to logic 0. 
+Warning: In design 'MIMO', a pin on submodule 'gen16' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[1]' is connected to logic 0. 
+Warning: In design 'MIMO', a pin on submodule 'gen16' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[0]' is connected to logic 0. 
+Warning: In design 'MIMO', a pin on submodule 'gen64' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_clk_en' is connected to logic 1. 
+Warning: In design 'MIMO', a pin on submodule 'gen64' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[7]' is connected to logic 0. 
+Warning: In design 'MIMO', a pin on submodule 'gen64' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[6]' is connected to logic 0. 
+Warning: In design 'MIMO', a pin on submodule 'gen64' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[5]' is connected to logic 0. 
+Warning: In design 'MIMO', a pin on submodule 'gen64' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[4]' is connected to logic 1. 
+Warning: In design 'MIMO', a pin on submodule 'gen64' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[3]' is connected to logic 0. 
+Warning: In design 'MIMO', a pin on submodule 'gen64' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[2]' is connected to logic 0. 
+Warning: In design 'MIMO', a pin on submodule 'gen64' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[1]' is connected to logic 0. 
+Warning: In design 'MIMO', a pin on submodule 'gen64' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[0]' is connected to logic 0. 
+Warning: In design 'MIMO', a pin on submodule 'gen_4' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_clk_en' is connected to logic 1. 
+Warning: In design 'MIMO', a pin on submodule 'gen_4' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[7]' is connected to logic 0. 
+Warning: In design 'MIMO', a pin on submodule 'gen_4' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[6]' is connected to logic 0. 
+Warning: In design 'MIMO', a pin on submodule 'gen_4' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[5]' is connected to logic 0. 
+Warning: In design 'MIMO', a pin on submodule 'gen_4' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[4]' is connected to logic 0. 
+Warning: In design 'MIMO', a pin on submodule 'gen_4' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[3]' is connected to logic 0. 
+Warning: In design 'MIMO', a pin on submodule 'gen_4' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[2]' is connected to logic 1. 
+Warning: In design 'MIMO', a pin on submodule 'gen_4' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[1]' is connected to logic 0. 
+Warning: In design 'MIMO', a pin on submodule 'gen_4' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'i_div_ratio[0]' is connected to logic 0. 
+Warning: In design 'MIMO', the same net is connected to more than one pin on submodule 'gen4'. (LINT-33)
+   Net '*Logic1*' is connected to pins 'i_clk_en', 'i_div_ratio[2]''.
+Warning: In design 'MIMO', the same net is connected to more than one pin on submodule 'gen4'. (LINT-33)
+   Net '*Logic0*' is connected to pins 'i_div_ratio[7]', 'i_div_ratio[6]'', 'i_div_ratio[5]', 'i_div_ratio[4]', 'i_div_ratio[3]', 'i_div_ratio[1]', 'i_div_ratio[0]'.
+Warning: In design 'MIMO', the same net is connected to more than one pin on submodule 'gen128'. (LINT-33)
+   Net '*Logic1*' is connected to pins 'i_clk_en', 'i_div_ratio[7]''.
+Warning: In design 'MIMO', the same net is connected to more than one pin on submodule 'gen128'. (LINT-33)
+   Net '*Logic0*' is connected to pins 'i_div_ratio[6]', 'i_div_ratio[5]'', 'i_div_ratio[4]', 'i_div_ratio[3]', 'i_div_ratio[2]', 'i_div_ratio[1]', 'i_div_ratio[0]'.
+Warning: In design 'MIMO', the same net is connected to more than one pin on submodule 'gen16'. (LINT-33)
+   Net '*Logic1*' is connected to pins 'i_clk_en', 'i_div_ratio[6]''.
+Warning: In design 'MIMO', the same net is connected to more than one pin on submodule 'gen16'. (LINT-33)
+   Net '*Logic0*' is connected to pins 'i_div_ratio[7]', 'i_div_ratio[5]'', 'i_div_ratio[4]', 'i_div_ratio[3]', 'i_div_ratio[2]', 'i_div_ratio[1]', 'i_div_ratio[0]'.
+Warning: In design 'MIMO', the same net is connected to more than one pin on submodule 'gen64'. (LINT-33)
+   Net '*Logic1*' is connected to pins 'i_clk_en', 'i_div_ratio[4]''.
+Warning: In design 'MIMO', the same net is connected to more than one pin on submodule 'gen64'. (LINT-33)
+   Net '*Logic0*' is connected to pins 'i_div_ratio[7]', 'i_div_ratio[6]'', 'i_div_ratio[5]', 'i_div_ratio[3]', 'i_div_ratio[2]', 'i_div_ratio[1]', 'i_div_ratio[0]'.
+Warning: In design 'MIMO', the same net is connected to more than one pin on submodule 'gen_4'. (LINT-33)
+   Net '*Logic1*' is connected to pins 'i_clk_en', 'i_div_ratio[2]''.
+Warning: In design 'MIMO', the same net is connected to more than one pin on submodule 'gen_4'. (LINT-33)
+   Net '*Logic0*' is connected to pins 'i_div_ratio[7]', 'i_div_ratio[6]'', 'i_div_ratio[5]', 'i_div_ratio[4]', 'i_div_ratio[3]', 'i_div_ratio[1]', 'i_div_ratio[0]'.
+1
+#################### Define Design Constraints #########################
+source -echo ./cons.tcl
+# Constraints
+# ----------------------------------------------------------------------------
+#
+# 1. Master Clock Definitions
+#
+# 2. Generated Clock Definitions
+#
+# 3. Clock Uncertainties
+#
+# 4. Clock Latencies 
+#
+# 5. Clock Relationships
+#
+# 6. set input/output delay on ports
+#
+# 7. Driving cells
+#
+# 8. Output load
+####################################################################################
+#########################################################
+#### Section 0 : DC Variables ####
+#########################################################
+#################################################################################### 
+# Prevent assign statements in the generated netlist (must be applied before compile command)
+set verilogout_no_tri true
+set_fix_multiple_port_nets -all -buffer_constants -feedthroughs
+####################################################################################
+#########################################################
+#### Section 1 : Clock Definition ####
+#########################################################
+#################################################################################### 
+# 1. Master Clock Definitions 
+# 2. Generated Clock Definitions
+# 3. Clock Latencies
+# 4. Clock Uncertainties
+# 4. Clock Transitions
+####################################################################################
+# REF CLOCK (400 MHz)
+set CLK_NAME REF_CLK
+set CLK_PER 2.5
+# Skew
+set CLK_SETUP_SKEW 0.02
+set CLK_HOLD_SKEW 0.01
+#transition
+set CLK_TRANS 0.05
+#1. Master Clocks
+create_clock -name $CLK_NAME -period $CLK_PER -waveform "0 [expr $CLK_PER/2]" [get_ports clk]
+set_clock_uncertainty -setup $CLK_SETUP_SKEW [get_clocks $CLK_NAME]
+set_clock_uncertainty -hold $CLK_HOLD_SKEW  [get_clocks $CLK_NAME]
+set_clock_transition  $CLK_TRANS [get_clocks $CLK_NAME]
+#2. Generated clocks
+create_generated_clock -master_clock $CLK_NAME -source [get_ports clk]                        -name "CLK_SEGMA" [get_port gen4/o_div_clk]                        -divide_by 4
+set_clock_uncertainty -setup $CLK_SETUP_SKEW [get_clocks "CLK_SEGMA"]
+set_clock_uncertainty -hold $CLK_HOLD_SKEW   [get_clocks "CLK_SEGMA"]
+create_generated_clock -master_clock $CLK_NAME -source [get_ports clk]                        -name "CLK_128" [get_port gen128/o_div_clk]                        -divide_by 128
+set_clock_uncertainty -setup $CLK_SETUP_SKEW [get_clocks "CLK_128"]
+set_clock_uncertainty -hold $CLK_HOLD_SKEW   [get_clocks "CLK_128"]
+create_generated_clock -master_clock $CLK_NAME -source [get_ports clk]                        -name "CLK_64" [get_port gen64/o_div_clk]                        -divide_by 64
+set_clock_uncertainty -setup $CLK_SETUP_SKEW [get_clocks "CLK_64"]
+set_clock_uncertainty -hold $CLK_HOLD_SKEW   [get_clocks "CLK_64"]
+create_generated_clock -master_clock $CLK_NAME -source [get_ports clk]                        -name "CLK_16" [get_port gen16/o_div_clk]                        -divide_by 16
+set_clock_uncertainty -setup $CLK_SETUP_SKEW [get_clocks "CLK_16"]
+set_clock_uncertainty -hold $CLK_HOLD_SKEW   [get_clocks "CLK_16"]
+create_generated_clock -master_clock $CLK_NAME -source [get_ports clk]                        -name "CLK_4" [get_port gen_4/o_div_clk]                        -divide_by 4
+set_clock_uncertainty -setup $CLK_SETUP_SKEW [get_clocks "CLK_4"]
+set_clock_uncertainty -hold $CLK_HOLD_SKEW   [get_clocks "CLK_4"]
+set DFT_CLK_NAME DFT_CLK
+set DFT_CLK_PER 20   
+set DFT_CLK_SETUP_SKEW 0.02
+set DFT_CLK_HOLD_SKEW 0.01
+set DFT_CLK_TRANS 0.05
+create_clock -name $DFT_CLK_NAME -period $DFT_CLK_PER -waveform "0 [expr $DFT_CLK_PER/2]" [get_ports scan_clk]
+set_clock_uncertainty -setup $DFT_CLK_SETUP_SKEW [get_clocks $DFT_CLK_NAME]
+set_clock_uncertainty -hold $CLK_HOLD_SKEW  [get_clocks $DFT_CLK_NAME]
+set_clock_transition  $DFT_CLK_TRANS [get_clocks $DFT_CLK_NAME]
+set_dont_touch_network [get_clocks "$CLK_NAME CLK_SEGMA CLK_128 CLK_64 CLK_4 CLK_16 $DFT_CLK_NAME"]
+####################################################################################
+#########################################################
+#### Section 2 : Clocks Relationships ####
+#########################################################
+####################################################################################
+set_clock_groups -asynchronous     -group [get_clocks "$CLK_NAME CLK_SEGMA CLK_128 CLK_64 CLK_4 CLK_16"]     -group [get_clocks "$DFT_CLK_NAME"] 
+####################################################################################
+#########################################################
+#### Section 3 : set input/output delay on ports ####
+#########################################################
+####################################################################################
+set in_delay  [expr 0.2*$CLK_PER]
+set out_delay [expr 0.2*$CLK_PER]
+#Constrain Input Paths
+set_input_delay $in_delay -clock $CLK_NAME [get_port I]
+set_input_delay $in_delay -clock $CLK_NAME [get_port Q]
+set_input_delay $in_delay -clock $DFT_CLK_NAME [get_port test_mode]
+set_input_delay $in_delay -clock $DFT_CLK_NAME [get_port SI]
+set_input_delay $in_delay -clock $DFT_CLK_NAME [get_port SE]
+#Constrain Output Paths
+set_output_delay $out_delay -clock $CLK_NAME [get_port out]
+set_output_delay $out_delay -clock $DFT_CLK_NAME [get_port SO]
+####################################################################################
+#########################################################
+#### Section 4 : Driving cells ####
+#########################################################
+####################################################################################
+#functional ports
+set_driving_cell -library scmetro_tsmc_cl013g_rvt_ss_1p08v_125c -lib_cell BUFX2M -pin Y [get_port I]
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+set_driving_cell -library scmetro_tsmc_cl013g_rvt_ss_1p08v_125c -lib_cell BUFX2M -pin Y [get_port Q]
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+set_driving_cell -library scmetro_tsmc_cl013g_rvt_ss_1p08v_125c -lib_cell BUFX2M -pin Y [get_port test_mode]
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+set_driving_cell -library scmetro_tsmc_cl013g_rvt_ss_1p08v_125c -lib_cell BUFX2M -pin Y [get_port SI]
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+set_driving_cell -library scmetro_tsmc_cl013g_rvt_ss_1p08v_125c -lib_cell BUFX2M -pin Y [get_port SE]
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+####################################################################################
+#########################################################
+#### Section 5 : Output load ####
+#########################################################
+####################################################################################
+#functional ports
+set_load 0.8 [get_port out]
+#scan ports
+set_load 0.8 [get_port SO]
+####################################################################################
+#########################################################
+#### Section 6 : Operating Condition ####
+#########################################################
+####################################################################################
+# Define the Worst Library for Max(#setup) analysis
+# Define the Best Library for Min(hold) analysis
+set_operating_conditions -min_library "scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c" -min "scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c" -max_library "scmetro_tsmc_cl013g_rvt_ss_1p08v_125c" -max "scmetro_tsmc_cl013g_rvt_ss_1p08v_125c"
+Using operating conditions 'scmetro_tsmc_cl013g_rvt_ss_1p08v_125c' found in library 'scmetro_tsmc_cl013g_rvt_ss_1p08v_125c'.
+Using operating conditions 'scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c' found in library 'scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c'.
+####################################################################################
+#########################################################
+#### Section 7 : wireload Model ####
+#########################################################
+####################################################################################
+#set_wire_load_model -name tsmc13_wl30 -library scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
+####################################################################################
+#########################################################
+#### Section 8 : multicycle path ####
+#########################################################
+####################################################################################
+set_case_analysis 1 [get_port test_mode]
+1
+#################### Architecture Scan Chains #########################
+set_scan_configuration -clock_mixing no_mix -style multiplexed_flip_flop -replace true -max_length 600  
+Accepted scan configuration for modes: all_dft
+1
+###################### Mapping and optimization ########################
+compile -scan
+Information: Choosing a test methodology will restrict the optimization of sequential cells. (UIO-12)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | K-2015.06-DWBB_201506.0 |     *     |
+| Licensed DW Building Blocks        |                         |           |
+============================================================================
+
+
+Information: There are 62 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+Warning: Operating condition scmetro_tsmc_cl013g_rvt_ss_1p08v_125c set on design MIMO has different process,
+voltage and temperatures parameters than the parameters at which target library 
+scmetro_tsmc_cl013g_rvt_tt_1p2v_25c is characterized. Delays may be inaccurate as a result. (OPT-998)
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'DUC'
+  Processing 'segma_0'
+  Processing 'mux4to1_0'
+  Processing 'counter2bit_0'
+  Processing 'up4_filter_0'
+  Processing 'counter_0'
+  Processing 'hfb_1_0'
+  Processing 'FIR_0'
+  Processing 'ClkDiv_0'
+  Processing 'mux2X1_0'
+  Processing 'mux2X1_1'
+  Processing 'MIMO'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Implementation Selection
+  ----------------------------------
+  Processing 'segma_1_DW01_sub_0'
+  Processing 'segma_0_DW01_sub_0'
+  Processing 'up4_filter_1_DW01_add_0'
+  Processing 'up4_filter_2_DW01_add_0'
+  Processing 'hfb_1_1_DW01_add_0'
+  Processing 'hfb_1_1_DW01_add_1'
+  Processing 'hfb_1_1_DW01_add_2'
+  Processing 'up4_filter_3_DW01_add_0'
+  Processing 'up4_filter_0_DW01_add_0'
+  Processing 'hfb_1_0_DW01_add_0'
+  Processing 'hfb_1_0_DW01_add_1'
+  Processing 'hfb_1_0_DW01_add_2'
+  Processing 'ClkDiv_1_DW01_inc_0'
+  Processing 'ClkDiv_1_DW01_cmp6_0'
+  Processing 'ClkDiv_1_DW01_cmp6_1'
+  Processing 'ClkDiv_1_DW01_dec_0'
+  Processing 'ClkDiv_2_DW01_inc_0'
+  Processing 'ClkDiv_2_DW01_cmp6_0'
+  Processing 'ClkDiv_2_DW01_cmp6_1'
+  Processing 'ClkDiv_2_DW01_dec_0'
+  Processing 'ClkDiv_3_DW01_inc_0'
+  Processing 'ClkDiv_3_DW01_cmp6_0'
+  Processing 'ClkDiv_3_DW01_cmp6_1'
+  Processing 'ClkDiv_3_DW01_dec_0'
+  Processing 'ClkDiv_4_DW01_inc_0'
+  Processing 'ClkDiv_4_DW01_cmp6_0'
+  Processing 'ClkDiv_4_DW01_cmp6_1'
+  Processing 'ClkDiv_4_DW01_dec_0'
+  Processing 'ClkDiv_0_DW01_inc_0'
+  Processing 'ClkDiv_0_DW01_cmp6_0'
+  Processing 'ClkDiv_0_DW01_cmp6_1'
+  Processing 'ClkDiv_0_DW01_dec_0'
+  Processing 'up4_filter_2_DW01_add_1'
+  Processing 'up4_filter_2_DW01_add_2'
+  Processing 'up4_filter_2_DW01_add_3'
+  Processing 'up4_filter_2_DW01_add_4'
+  Processing 'up4_filter_2_DW01_add_5'
+  Processing 'up4_filter_2_DW01_add_6'
+  Processing 'up4_filter_2_DW01_sub_0'
+  Processing 'up4_filter_2_DW01_add_7'
+  Processing 'up4_filter_2_DW01_sub_1'
+  Processing 'up4_filter_0_DW01_add_1'
+  Processing 'up4_filter_0_DW01_add_2'
+  Processing 'up4_filter_0_DW01_sub_0'
+  Processing 'up4_filter_0_DW01_add_3'
+  Processing 'up4_filter_0_DW01_sub_1'
+  Processing 'up4_filter_0_DW01_add_4'
+  Processing 'up4_filter_0_DW01_add_5'
+  Processing 'up4_filter_0_DW01_add_6'
+  Processing 'up4_filter_0_DW01_add_7'
+  Processing 'hfb_1_1_DW01_add_3'
+  Processing 'hfb_1_1_DW01_add_4'
+  Processing 'hfb_1_1_DW01_add_5'
+  Processing 'hfb_1_1_DW01_add_6'
+  Processing 'hfb_1_1_DW01_sub_0'
+  Processing 'hfb_1_1_DW01_add_7'
+  Processing 'hfb_1_1_DW01_add_8'
+  Processing 'hfb_1_1_DW02_mult_0'
+  Processing 'hfb_1_1_DW01_add_9'
+  Processing 'hfb_1_1_DW02_mult_1'
+  Processing 'hfb_1_1_DW01_add_10'
+  Processing 'hfb_1_1_DW02_mult_2'
+  Processing 'hfb_1_1_DW01_add_11'
+  Processing 'hfb_1_1_DW02_mult_3'
+  Processing 'hfb_1_1_DW01_add_12'
+  Processing 'hfb_1_1_DW01_add_13'
+  Processing 'hfb_1_1_DW01_add_14'
+  Processing 'hfb_1_1_DW01_add_15'
+  Processing 'hfb_1_1_DW01_add_16'
+  Processing 'hfb_1_1_DW01_add_17'
+  Processing 'hfb_1_0_DW01_add_3'
+  Processing 'hfb_1_0_DW01_add_4'
+  Processing 'hfb_1_0_DW01_add_5'
+  Processing 'hfb_1_0_DW01_add_6'
+  Processing 'hfb_1_0_DW01_sub_0'
+  Processing 'hfb_1_0_DW01_add_7'
+  Processing 'hfb_1_0_DW01_add_8'
+  Processing 'hfb_1_0_DW02_mult_0'
+  Processing 'hfb_1_0_DW01_add_9'
+  Processing 'hfb_1_0_DW02_mult_1'
+  Processing 'hfb_1_0_DW01_add_10'
+  Processing 'hfb_1_0_DW02_mult_2'
+  Processing 'hfb_1_0_DW01_add_11'
+  Processing 'hfb_1_0_DW02_mult_3'
+  Processing 'hfb_1_0_DW01_add_12'
+  Processing 'hfb_1_0_DW01_add_13'
+  Processing 'hfb_1_0_DW01_add_14'
+  Processing 'hfb_1_0_DW01_add_15'
+  Processing 'hfb_1_0_DW01_add_16'
+  Processing 'hfb_1_0_DW01_add_17'
+  Processing 'up4_filter_2_DW01_add_8'
+  Processing 'up4_filter_2_DW01_add_9'
+  Processing 'up4_filter_2_DW01_add_10'
+  Processing 'up4_filter_2_DW01_add_11'
+  Processing 'up4_filter_2_DW01_add_12'
+  Processing 'up4_filter_2_DW01_add_13'
+  Processing 'up4_filter_2_DW01_add_14'
+  Processing 'up4_filter_2_DW01_add_15'
+  Processing 'up4_filter_0_DW01_add_8'
+  Processing 'up4_filter_0_DW01_add_9'
+  Processing 'up4_filter_0_DW01_add_10'
+  Processing 'up4_filter_0_DW01_add_11'
+  Processing 'up4_filter_0_DW01_add_12'
+  Processing 'up4_filter_0_DW01_add_13'
+  Processing 'up4_filter_0_DW01_add_14'
+  Processing 'up4_filter_0_DW01_add_15'
+  Processing 'up4_filter_1_DW01_add_1'
+  Processing 'up4_filter_1_DW01_add_2'
+  Processing 'up4_filter_1_DW01_add_3'
+  Processing 'up4_filter_1_DW01_add_4'
+  Processing 'up4_filter_1_DW01_add_5'
+  Processing 'up4_filter_1_DW01_add_6'
+  Processing 'up4_filter_1_DW01_add_7'
+  Processing 'up4_filter_1_DW01_add_8'
+  Processing 'up4_filter_1_DW01_sub_0'
+  Processing 'up4_filter_1_DW01_add_9'
+  Processing 'up4_filter_1_DW01_add_10'
+  Processing 'up4_filter_1_DW01_add_11'
+  Processing 'up4_filter_1_DW01_add_12'
+  Processing 'up4_filter_1_DW01_add_13'
+  Processing 'up4_filter_1_DW01_add_14'
+  Processing 'up4_filter_1_DW01_add_15'
+  Processing 'up4_filter_1_DW01_add_16'
+  Processing 'up4_filter_3_DW01_add_1'
+  Processing 'up4_filter_3_DW01_add_2'
+  Processing 'up4_filter_3_DW01_add_3'
+  Processing 'up4_filter_3_DW01_add_4'
+  Processing 'up4_filter_3_DW01_add_5'
+  Processing 'up4_filter_3_DW01_add_6'
+  Processing 'up4_filter_3_DW01_add_7'
+  Processing 'up4_filter_3_DW01_add_8'
+  Processing 'up4_filter_3_DW01_sub_0'
+  Processing 'up4_filter_3_DW01_add_9'
+  Processing 'up4_filter_3_DW01_add_10'
+  Processing 'up4_filter_3_DW01_add_11'
+  Processing 'up4_filter_3_DW01_add_12'
+  Processing 'up4_filter_3_DW01_add_13'
+  Processing 'up4_filter_3_DW01_add_14'
+  Processing 'up4_filter_3_DW01_add_15'
+  Processing 'up4_filter_3_DW01_add_16'
+  Processing 'segma_1_DW01_add_0'
+  Processing 'segma_1_DW01_sub_1'
+  Processing 'segma_0_DW01_add_0'
+  Processing 'segma_0_DW01_sub_1'
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+  Mapping Optimization (Phase 1)
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:18  253385.9      0.00       0.0       5.2                          
+    0:00:18  253385.9      0.00       0.0       5.2                          
+    0:00:18  253385.9      0.00       0.0       5.2                          
+    0:00:19  253385.9      0.00       0.0       5.2                          
+    0:00:19  253385.9      0.00       0.0       5.2                          
+    0:00:22  110796.9      0.09       0.2       0.7                          
+    0:00:22  110753.4      0.01       0.0       0.7                          
+    0:00:23  110761.6      0.07       0.1       0.7                          
+    0:00:24  110775.7      0.00       0.0       0.7                          
+    0:00:24  110774.5      0.00       0.0       0.7                          
+    0:00:24  110774.5      0.00       0.0       0.7                          
+    0:00:24  110774.5      0.00       0.0       0.7                          
+    0:00:24  110774.5      0.00       0.0       0.7                          
+    0:00:24  110774.5      0.00       0.0       0.7                          
+    0:00:24  110778.1      0.00       0.0       0.0                          
+    0:00:24  110778.1      0.00       0.0       0.0                          
+    0:00:24  110778.1      0.00       0.0       0.0                          
+    0:00:24  110778.1      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:24  110778.1      0.00       0.0       0.0                          
+    0:00:24  110778.1      0.00       0.0       0.0                          
+    0:00:25  110778.1      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:25  110778.1      0.00       0.0       0.0                          
+    0:00:25  110778.1      0.00       0.0       0.0                          
+    0:00:25  110240.3      0.00       0.0       0.0                          
+    0:00:25  110165.0      0.00       0.0       0.0                          
+    0:00:25  110157.9      0.00       0.0       0.0                          
+    0:00:25  110150.9      0.00       0.0       0.0                          
+    0:00:25  110150.9      0.00       0.0       0.0                          
+    0:00:25  110150.9      0.00       0.0       0.0                          
+    0:00:26  110143.8      0.00       0.0       0.0                          
+    0:00:26  110139.1      0.00       0.0       0.0                          
+    0:00:26  110139.1      0.00       0.0       0.0                          
+    0:00:26  110139.1      0.00       0.0       0.0                          
+    0:00:26  110139.1      0.00       0.0       0.0                          
+    0:00:26  110139.1      0.00       0.0       0.0                          
+    0:00:26  110139.1      0.00       0.0       0.0                          
+    0:00:26  110139.1      0.00       0.0       0.0                          
+Loading db file '/home/IC/chain_test/std_cells/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db'
+Loading db file '/home/IC/chain_test/std_cells/scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db'
+Loading db file '/home/IC/chain_test/std_cells/scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+################################################################### 
+# Setting Test Timing Variables
+################################################################### 
+# Preclock Measure Protocol (default protocol)
+set test_default_period 100
+100
+set test_default_delay 0
+0
+set test_default_bidir_delay 0
+0
+set test_default_strobe 20
+20
+set test_default_strobe_width 0
+0
+########################## Define DFT Signals ##########################
+set_dft_signal -port [get_ports scan_clk]  -type ScanClock   -view existing_dft  -timing {30 60}
+Accepted dft signal specification for modes: all_dft
+1
+set_dft_signal -port [get_ports scan_rst]  -type Reset       -view existing_dft  -active_state 0
+Accepted dft signal specification for modes: all_dft
+1
+set_dft_signal -port [get_ports test_mode] -type Constant    -view existing_dft  -active_state 1 
+Accepted dft signal specification for modes: all_dft
+1
+set_dft_signal -port [get_ports test_mode] -type TestMode    -view spec          -active_state 1 
+Accepted dft signal specification for modes: all_dft
+1
+set_dft_signal -port [get_ports SE]        -type ScanEnable  -view spec          -active_state 1 -usage scan
+Accepted dft signal specification for modes: all_dft
+1
+set_dft_signal -port [get_ports SI]        -type ScanDataIn  -view spec 
+Accepted dft signal specification for modes: all_dft
+1
+set_dft_signal -port [get_ports SO]        -type ScanDataOut -view spec  
+Accepted dft signal specification for modes: all_dft
+1
+#set_dft_configuration -fix_clock enable -fix_reset enable -fix_set enable
+#set_autofix_configuration -type clock -method mux
+#set_autofix_configuration -type reset -method mux
+# -----------------------------------------------------------------------
+############################# Create Test Protocol #####################
+create_test_protocol
+In mode: all_dft...
+
+Information: Starting test protocol creation. (TEST-219)
+  ...reading user specified clock signals...
+Information: Identified system/test clock port scan_clk (30.0,60.0). (TEST-265)
+  ...reading user specified asynchronous signals...
+Information: Identified active low asynchronous control port scan_rst. (TEST-266)
+1
+###################### Pre-DFT Design Rule Checking ####################
+dft_drc -verbose
+In mode: all_dft...
+  Pre-DFT DRC enabled
+
+Information: Starting test design rule checking. (TEST-222)
+  Loading test protocol
+  ...basic checks...
+  ...basic sequential cell checks...
+  	...checking for scan equivalents...
+  ...checking vector rules...
+  ...checking pre-dft rules...
+
+-----------------------------------------------------------------
+  DRC Report
+
+  Total violations: 0
+
+-----------------------------------------------------------------
+
+
+Test Design rule checking did not find violations
+
+-----------------------------------------------------------------
+  Sequential Cell Report
+
+  0 out of 902 sequential cells have violations
+
+-----------------------------------------------------------------
+
+SEQUENTIAL CELLS WITHOUT VIOLATIONS
+      * 902 cells are valid scan cells
+         gen4/div_clk_reg
+         gen4/count_reg[5]
+         gen4/count_reg[4]
+         gen4/count_reg[3]
+         gen4/count_reg[6]
+         gen4/count_reg[0]
+         gen4/count_reg[2]
+         gen4/count_reg[1]
+         gen4/odd_edge_tog_reg
+         uut3/out_1bit_reg
+         uut3/acc1_reg[16]
+         uut3/acc1_reg[15]
+         uut3/acc2_reg[16]
+         uut3/acc2_reg[15]
+         uut3/acc1_reg[14]
+         uut3/acc1_reg[13]
+         uut3/acc1_reg[12]
+         uut3/acc1_reg[11]
+         uut3/acc2_reg[14]
+         uut3/acc2_reg[13]
+         uut3/acc2_reg[12]
+         uut3/acc2_reg[11]
+         uut3/acc2_reg[10]
+         uut3/acc1_reg[10]
+         uut3/acc1_reg[9]
+         uut3/acc1_reg[8]
+         uut3/acc1_reg[7]
+         uut3/acc2_reg[9]
+         uut3/acc2_reg[8]
+         uut3/acc2_reg[7]
+         uut3/acc2_reg[6]
+         uut3/acc1_reg[6]
+         uut3/acc1_reg[5]
+         uut3/acc1_reg[4]
+         uut3/acc1_reg[3]
+         uut3/acc1_reg[2]
+         uut3/acc2_reg[5]
+         uut3/acc2_reg[4]
+         uut3/acc2_reg[3]
+         uut3/acc2_reg[2]
+         uut3/acc1_reg[1]
+         uut3/acc1_reg[0]
+         uut3/acc2_reg[1]
+         uut3/acc2_reg[0]
+         uut3/acc1_reg[17]
+         uut3/acc2_reg[17]
+         uut5/I_reg_reg
+         uut5/Q_reg_reg
+         uut5/counter_reg[1]
+         uut5/counter_reg[0]
+         uut5/SYS_out_reg
+         uut1/uut/d_reg[12][14]
+         uut1/uut/d_reg[12][13]
+         uut1/uut/d_reg[12][12]
+         uut1/uut/d_reg[13][14]
+         uut1/uut/d_reg[13][13]
+         uut1/uut/d_reg[2][14]
+         uut1/uut/d_reg[2][13]
+         uut1/uut/d_reg[3][14]
+         uut1/uut/d_reg[3][13]
+         uut1/uut/d_reg[12][15]
+         uut1/uut/d_reg[13][15]
+         uut1/uut/d_reg[14][15]
+         uut1/uut/d_reg[2][15]
+         uut1/uut/d_reg[3][15]
+         uut1/uut/d_reg[15][14]
+         uut1/uut/d_reg[15][13]
+         uut1/uut/d_reg[15][12]
+         uut1/uut/d_reg[15][11]
+         uut1/uut/d_reg[12][11]
+         uut1/uut/d_reg[12][10]
+         uut1/uut/d_reg[12][9]
+         uut1/uut/d_reg[12][8]
+         uut1/uut/d_reg[13][12]
+         uut1/uut/d_reg[13][11]
+         uut1/uut/d_reg[13][10]
+         uut1/uut/d_reg[13][9]
+         uut1/uut/d_reg[13][8]
+         uut1/uut/d_reg[14][14]
+         uut1/uut/d_reg[14][13]
+         uut1/uut/d_reg[14][12]
+         uut1/uut/d_reg[14][11]
+         uut1/uut/d_reg[14][10]
+         uut1/uut/d_reg[0][14]
+         uut1/uut/d_reg[0][13]
+         uut1/uut/d_reg[0][12]
+         uut1/uut/d_reg[0][11]
+         uut1/uut/d_reg[1][14]
+         uut1/uut/d_reg[1][13]
+         uut1/uut/d_reg[1][12]
+         uut1/uut/d_reg[1][11]
+         uut1/uut/d_reg[2][12]
+         uut1/uut/d_reg[2][11]
+         uut1/uut/d_reg[2][10]
+         uut1/uut/d_reg[2][9]
+         uut1/uut/d_reg[3][12]
+         uut1/uut/d_reg[3][11]
+         uut1/uut/d_reg[3][10]
+         uut1/uut/d_reg[3][9]
+         uut1/uut/d_reg[15][15]
+         uut1/uut/d_reg[0][15]
+         uut1/uut/d_reg[1][15]
+         uut1/uut/d_reg[15][10]
+         uut1/uut/d_reg[15][9]
+         uut1/uut/d_reg[15][8]
+         uut1/uut/d_reg[15][7]
+         uut1/uut/d_reg[9][14]
+         uut1/uut/d_reg[10][14]
+         uut1/uut/d_reg[10][13]
+         uut1/uut/d_reg[10][12]
+         uut1/uut/d_reg[11][14]
+         uut1/uut/d_reg[12][7]
+         uut1/uut/d_reg[12][6]
+         uut1/uut/d_reg[12][5]
+         uut1/uut/d_reg[12][4]
+         uut1/uut/d_reg[13][7]
+         uut1/uut/d_reg[13][6]
+         uut1/uut/d_reg[13][5]
+         uut1/uut/d_reg[13][4]
+         uut1/uut/d_reg[14][9]
+         uut1/uut/d_reg[14][8]
+         uut1/uut/d_reg[14][7]
+         uut1/uut/d_reg[14][6]
+         uut1/uut/d_reg[8][14]
+         uut1/uut/d_reg[8][13]
+         uut1/uut/d_reg[8][12]
+         uut1/uut/d_reg[0][10]
+         uut1/uut/d_reg[0][9]
+         uut1/uut/d_reg[0][8]
+         uut1/uut/d_reg[0][7]
+         uut1/uut/d_reg[1][10]
+         uut1/uut/d_reg[1][9]
+         uut1/uut/d_reg[1][8]
+         uut1/uut/d_reg[1][7]
+         uut1/uut/d_reg[1][6]
+         uut1/uut/d_reg[2][8]
+         uut1/uut/d_reg[2][7]
+         uut1/uut/d_reg[2][6]
+         uut1/uut/d_reg[2][5]
+         uut1/uut/d_reg[2][4]
+         uut1/uut/d_reg[3][8]
+         uut1/uut/d_reg[3][7]
+         uut1/uut/d_reg[3][6]
+         uut1/uut/d_reg[3][5]
+         uut1/uut/d_reg[3][4]
+         uut1/uut/d_reg[5][14]
+         uut1/uut/d_reg[5][13]
+         uut1/uut/d_reg[7][14]
+         uut1/uut/d_reg[7][13]
+         uut1/uut/d_reg[9][15]
+         uut1/uut/d_reg[10][15]
+         uut1/uut/d_reg[11][15]
+         uut1/uut/d_reg[8][15]
+         uut1/uut/d_reg[4][15]
+         uut1/uut/d_reg[5][15]
+         uut1/uut/d_reg[6][15]
+         uut1/uut/d_reg[7][15]
+         uut1/uut/d_reg[15][6]
+         uut1/uut/d_reg[15][5]
+         uut1/uut/d_reg[15][4]
+         uut1/uut/d_reg[15][3]
+         uut1/uut/d_reg[15][2]
+         uut1/uut/d_reg[9][13]
+         uut1/uut/d_reg[9][12]
+         uut1/uut/d_reg[9][11]
+         uut1/uut/d_reg[9][10]
+         uut1/uut/d_reg[10][11]
+         uut1/uut/d_reg[10][10]
+         uut1/uut/d_reg[10][9]
+         uut1/uut/d_reg[10][8]
+         uut1/uut/d_reg[11][13]
+         uut1/uut/d_reg[11][12]
+         uut1/uut/d_reg[11][11]
+         uut1/uut/d_reg[11][10]
+         uut1/uut/d_reg[12][3]
+         uut1/uut/d_reg[12][2]
+         uut1/uut/d_reg[12][1]
+         uut1/uut/d_reg[13][3]
+         uut1/uut/d_reg[13][2]
+         uut1/uut/d_reg[13][1]
+         uut1/uut/d_reg[14][5]
+         uut1/uut/d_reg[14][4]
+         uut1/uut/d_reg[14][3]
+         uut1/uut/d_reg[14][2]
+         uut1/uut/d_reg[8][11]
+         uut1/uut/d_reg[8][10]
+         uut1/uut/d_reg[8][9]
+         uut1/uut/d_reg[8][8]
+         uut1/uut/d_reg[0][6]
+         uut1/uut/d_reg[0][5]
+         uut1/uut/d_reg[0][4]
+         uut1/uut/d_reg[0][3]
+         uut1/uut/d_reg[1][5]
+         uut1/uut/d_reg[1][4]
+         uut1/uut/d_reg[1][3]
+         uut1/uut/d_reg[1][2]
+         uut1/uut/d_reg[2][3]
+         uut1/uut/d_reg[2][2]
+         uut1/uut/d_reg[2][1]
+         uut1/uut/d_reg[3][3]
+         uut1/uut/d_reg[3][2]
+         uut1/uut/d_reg[3][1]
+         uut1/uut/d_reg[4][14]
+         uut1/uut/d_reg[4][13]
+         uut1/uut/d_reg[4][12]
+         uut1/uut/d_reg[4][11]
+         uut1/uut/d_reg[4][10]
+         uut1/uut/d_reg[5][12]
+         uut1/uut/d_reg[5][11]
+         uut1/uut/d_reg[5][10]
+         uut1/uut/d_reg[5][9]
+         uut1/uut/d_reg[6][14]
+         uut1/uut/d_reg[6][13]
+         uut1/uut/d_reg[6][12]
+         uut1/uut/d_reg[6][11]
+         uut1/uut/d_reg[6][10]
+         uut1/uut/d_reg[7][12]
+         uut1/uut/d_reg[7][11]
+         uut1/uut/d_reg[7][10]
+         uut1/uut/d_reg[7][9]
+         uut1/uut/d_reg[12][0]
+         uut1/uut/d_reg[13][0]
+         uut1/uut/d_reg[2][0]
+         uut1/uut/d_reg[3][0]
+         uut1/uut/d_reg[15][1]
+         uut1/uut/d_reg[9][9]
+         uut1/uut/d_reg[9][8]
+         uut1/uut/d_reg[9][7]
+         uut1/uut/d_reg[9][6]
+         uut1/uut/d_reg[10][7]
+         uut1/uut/d_reg[10][6]
+         uut1/uut/d_reg[10][5]
+         uut1/uut/d_reg[10][4]
+         uut1/uut/d_reg[11][9]
+         uut1/uut/d_reg[11][8]
+         uut1/uut/d_reg[11][7]
+         uut1/uut/d_reg[11][6]
+         uut1/uut/d_reg[14][1]
+         uut1/uut/d_reg[8][7]
+         uut1/uut/d_reg[8][6]
+         uut1/uut/d_reg[8][5]
+         uut1/uut/d_reg[8][4]
+         uut1/uut/d_reg[0][2]
+         uut1/uut/d_reg[0][1]
+         uut1/uut/d_reg[1][1]
+         uut1/uut/d_reg[4][9]
+         uut1/uut/d_reg[4][8]
+         uut1/uut/d_reg[4][7]
+         uut1/uut/d_reg[4][6]
+         uut1/uut/d_reg[5][8]
+         uut1/uut/d_reg[5][7]
+         uut1/uut/d_reg[5][6]
+         uut1/uut/d_reg[5][5]
+         uut1/uut/d_reg[5][4]
+         uut1/uut/d_reg[6][9]
+         uut1/uut/d_reg[6][8]
+         uut1/uut/d_reg[6][7]
+         uut1/uut/d_reg[6][6]
+         uut1/uut/d_reg[7][8]
+         uut1/uut/d_reg[7][7]
+         uut1/uut/d_reg[7][6]
+         uut1/uut/d_reg[7][5]
+         uut1/uut/d_reg[7][4]
+         uut1/uut/d_reg[15][0]
+         uut1/uut/d_reg[14][0]
+         uut1/uut/d_reg[0][0]
+         uut1/uut/d_reg[1][0]
+         uut1/uut/d_reg[9][5]
+         uut1/uut/d_reg[9][4]
+         uut1/uut/d_reg[9][3]
+         uut1/uut/d_reg[9][2]
+         uut1/uut/d_reg[9][1]
+         uut1/uut/d_reg[10][3]
+         uut1/uut/d_reg[10][2]
+         uut1/uut/d_reg[10][1]
+         uut1/uut/d_reg[11][5]
+         uut1/uut/d_reg[11][4]
+         uut1/uut/d_reg[11][3]
+         uut1/uut/d_reg[11][2]
+         uut1/uut/d_reg[8][3]
+         uut1/uut/d_reg[8][2]
+         uut1/uut/d_reg[8][1]
+         uut1/uut/d_reg[4][5]
+         uut1/uut/d_reg[4][4]
+         uut1/uut/d_reg[4][3]
+         uut1/uut/d_reg[4][2]
+         uut1/uut/d_reg[5][3]
+         uut1/uut/d_reg[5][2]
+         uut1/uut/d_reg[5][1]
+         uut1/uut/d_reg[6][5]
+         uut1/uut/d_reg[6][4]
+         uut1/uut/d_reg[6][3]
+         uut1/uut/d_reg[6][2]
+         uut1/uut/d_reg[7][3]
+         uut1/uut/d_reg[7][2]
+         uut1/uut/d_reg[7][1]
+         uut1/uut/d_reg[8][0]
+         uut1/uut/d_reg[9][0]
+         uut1/uut/d_reg[10][0]
+         uut1/uut/d_reg[5][0]
+         uut1/uut/d_reg[7][0]
+         uut1/uut/d_reg[11][1]
+         uut1/uut/d_reg[4][1]
+         uut1/uut/d_reg[6][1]
+         uut1/uut/d_reg[11][0]
+         uut1/uut/d_reg[4][0]
+         uut1/uut/d_reg[6][0]
+         uut1/uut/odd_out_reg[15]
+         uut1/uut/odd_out_reg[14]
+         uut1/uut/odd_out_reg[13]
+         uut1/uut/even_out_reg[15]
+         uut1/uut/even_out_reg[14]
+         uut1/uut/even_out_reg[13]
+         uut1/uut/odd_out_reg[12]
+         uut1/uut/odd_out_reg[11]
+         uut1/uut/odd_out_reg[10]
+         uut1/uut/odd_out_reg[9]
+         uut1/uut/odd_out_reg[8]
+         uut1/uut/even_out_reg[12]
+         uut1/uut/even_out_reg[11]
+         uut1/uut/even_out_reg[10]
+         uut1/uut/even_out_reg[9]
+         uut1/uut/even_out_reg[8]
+         uut1/uut/odd_out_reg[7]
+         uut1/uut/odd_out_reg[6]
+         uut1/uut/odd_out_reg[5]
+         uut1/uut/odd_out_reg[4]
+         uut1/uut/even_out_reg[7]
+         uut1/uut/even_out_reg[6]
+         uut1/uut/even_out_reg[5]
+         uut1/uut/even_out_reg[4]
+         uut1/uut/odd_out_reg[3]
+         uut1/uut/odd_out_reg[2]
+         uut1/uut/odd_out_reg[1]
+         uut1/uut/odd_out_reg[0]
+         uut1/uut/even_out_reg[3]
+         uut1/uut/even_out_reg[2]
+         uut1/uut/even_out_reg[1]
+         uut1/uut/even_out_reg[0]
+         uut1/uut1/SEL_reg
+         uut1/uut2/x_n3_reg[14]
+         uut1/uut2/x_n3_reg[13]
+         uut1/uut2/x_n3_reg[12]
+         uut1/uut2/x_n1_reg[15]
+         uut1/uut2/x_n3_reg[11]
+         uut1/uut2/x_n3_reg[10]
+         uut1/uut2/x_n3_reg[9]
+         uut1/uut2/x_n3_reg[8]
+         uut1/uut2/x_n3_reg[7]
+         uut1/uut2/x_n2_reg[15]
+         uut1/uut2/x_n2_reg[14]
+         uut1/uut2/x_n2_reg[13]
+         uut1/uut2/x_n2_reg[12]
+         uut1/uut2/x_n3_reg[4]
+         uut1/uut2/x_n3_reg[3]
+         uut1/uut2/x_n3_reg[2]
+         uut1/uut2/x_n3_reg[1]
+         uut1/uut2/x_n3_reg[0]
+         uut1/uut2/x_n3_reg[6]
+         uut1/uut2/x_n3_reg[5]
+         uut1/uut2/x_n2_reg[11]
+         uut1/uut2/x_n2_reg[10]
+         uut1/uut2/x_n2_reg[9]
+         uut1/uut2/x_n2_reg[8]
+         uut1/uut2/x_n1_reg[2]
+         uut1/uut2/x_n1_reg[1]
+         uut1/uut2/x_n1_reg[0]
+         uut1/uut2/x_n2_reg[7]
+         uut1/uut2/x_n2_reg[6]
+         uut1/uut2/x_n2_reg[5]
+         uut1/uut2/x_n2_reg[4]
+         uut1/uut2/x_n2_reg[1]
+         uut1/uut2/x_n2_reg[2]
+         uut1/uut2/x_n1_reg[14]
+         uut1/uut2/x_n1_reg[13]
+         uut1/uut2/x_n1_reg[12]
+         uut1/uut2/x_n3_reg[15]
+         uut1/uut2/x_n1_reg[11]
+         uut1/uut2/x_n1_reg[10]
+         uut1/uut2/x_n1_reg[9]
+         uut1/uut2/x_n1_reg[8]
+         uut1/uut2/x_n1_reg[7]
+         uut1/uut2/x_n1_reg[6]
+         uut1/uut2/x_n1_reg[5]
+         uut1/uut2/x_n1_reg[4]
+         uut1/uut2/x_n1_reg[3]
+         uut1/uut2/x_n2_reg[0]
+         uut1/uut2/x_n2_reg[3]
+         uut1/uut3/count_reg[1]
+         uut1/uut3/count_reg[0]
+         gen_4/div_clk_reg
+         gen_4/count_reg[5]
+         gen_4/count_reg[4]
+         gen_4/count_reg[3]
+         gen_4/count_reg[6]
+         gen_4/count_reg[0]
+         gen_4/count_reg[2]
+         gen_4/count_reg[1]
+         gen_4/odd_edge_tog_reg
+         gen64/odd_edge_tog_reg
+         gen64/div_clk_reg
+         gen64/count_reg[5]
+         gen64/count_reg[4]
+         gen64/count_reg[3]
+         gen64/count_reg[6]
+         gen64/count_reg[0]
+         gen64/count_reg[2]
+         gen64/count_reg[1]
+         gen16/odd_edge_tog_reg
+         gen16/div_clk_reg
+         gen16/count_reg[5]
+         gen16/count_reg[4]
+         gen16/count_reg[3]
+         gen16/count_reg[6]
+         gen16/count_reg[0]
+         gen16/count_reg[2]
+         gen16/count_reg[1]
+         gen128/odd_edge_tog_reg
+         gen128/div_clk_reg
+         gen128/count_reg[5]
+         gen128/count_reg[4]
+         gen128/count_reg[3]
+         gen128/count_reg[6]
+         gen128/count_reg[0]
+         gen128/count_reg[2]
+         gen128/count_reg[1]
+         uut4/acc1_reg[16]
+         uut4/acc1_reg[15]
+         uut4/acc2_reg[16]
+         uut4/acc2_reg[15]
+         uut4/acc1_reg[14]
+         uut4/acc1_reg[13]
+         uut4/acc1_reg[12]
+         uut4/acc1_reg[11]
+         uut4/acc2_reg[14]
+         uut4/acc2_reg[13]
+         uut4/acc2_reg[12]
+         uut4/acc2_reg[11]
+         uut4/acc2_reg[10]
+         uut4/acc1_reg[10]
+         uut4/acc1_reg[9]
+         uut4/acc1_reg[8]
+         uut4/acc1_reg[7]
+         uut4/acc2_reg[9]
+         uut4/acc2_reg[8]
+         uut4/acc2_reg[7]
+         uut4/acc2_reg[6]
+         uut4/acc1_reg[6]
+         uut4/acc1_reg[5]
+         uut4/acc1_reg[4]
+         uut4/acc1_reg[3]
+         uut4/acc1_reg[2]
+         uut4/acc2_reg[5]
+         uut4/acc2_reg[4]
+         uut4/acc2_reg[3]
+         uut4/acc2_reg[2]
+         uut4/acc1_reg[1]
+         uut4/acc2_reg[1]
+         uut4/acc2_reg[0]
+         uut4/acc1_reg[0]
+         uut4/acc2_reg[17]
+         uut4/acc1_reg[17]
+         uut4/out_1bit_reg
+         uut2/uut/d_reg[12][14]
+         uut2/uut/d_reg[12][13]
+         uut2/uut/d_reg[12][12]
+         uut2/uut/d_reg[13][14]
+         uut2/uut/d_reg[13][13]
+         uut2/uut/d_reg[2][14]
+         uut2/uut/d_reg[2][13]
+         uut2/uut/d_reg[3][14]
+         uut2/uut/d_reg[3][13]
+         uut2/uut/d_reg[12][15]
+         uut2/uut/d_reg[13][15]
+         uut2/uut/d_reg[14][15]
+         uut2/uut/d_reg[2][15]
+         uut2/uut/d_reg[3][15]
+         uut2/uut/d_reg[15][14]
+         uut2/uut/d_reg[15][13]
+         uut2/uut/d_reg[15][12]
+         uut2/uut/d_reg[15][11]
+         uut2/uut/d_reg[12][11]
+         uut2/uut/d_reg[12][10]
+         uut2/uut/d_reg[12][9]
+         uut2/uut/d_reg[12][8]
+         uut2/uut/d_reg[13][12]
+         uut2/uut/d_reg[13][11]
+         uut2/uut/d_reg[13][10]
+         uut2/uut/d_reg[13][9]
+         uut2/uut/d_reg[13][8]
+         uut2/uut/d_reg[14][14]
+         uut2/uut/d_reg[14][13]
+         uut2/uut/d_reg[14][12]
+         uut2/uut/d_reg[14][11]
+         uut2/uut/d_reg[14][10]
+         uut2/uut/d_reg[0][14]
+         uut2/uut/d_reg[0][13]
+         uut2/uut/d_reg[0][12]
+         uut2/uut/d_reg[0][11]
+         uut2/uut/d_reg[1][14]
+         uut2/uut/d_reg[1][13]
+         uut2/uut/d_reg[1][12]
+         uut2/uut/d_reg[1][11]
+         uut2/uut/d_reg[2][12]
+         uut2/uut/d_reg[2][11]
+         uut2/uut/d_reg[2][10]
+         uut2/uut/d_reg[2][9]
+         uut2/uut/d_reg[3][12]
+         uut2/uut/d_reg[3][11]
+         uut2/uut/d_reg[3][10]
+         uut2/uut/d_reg[3][9]
+         uut2/uut/d_reg[15][15]
+         uut2/uut/d_reg[0][15]
+         uut2/uut/d_reg[1][15]
+         uut2/uut/d_reg[15][10]
+         uut2/uut/d_reg[15][9]
+         uut2/uut/d_reg[15][8]
+         uut2/uut/d_reg[15][7]
+         uut2/uut/d_reg[9][14]
+         uut2/uut/d_reg[10][14]
+         uut2/uut/d_reg[10][13]
+         uut2/uut/d_reg[10][12]
+         uut2/uut/d_reg[11][14]
+         uut2/uut/d_reg[12][7]
+         uut2/uut/d_reg[12][6]
+         uut2/uut/d_reg[12][5]
+         uut2/uut/d_reg[12][4]
+         uut2/uut/d_reg[13][7]
+         uut2/uut/d_reg[13][6]
+         uut2/uut/d_reg[13][5]
+         uut2/uut/d_reg[13][4]
+         uut2/uut/d_reg[14][9]
+         uut2/uut/d_reg[14][8]
+         uut2/uut/d_reg[14][7]
+         uut2/uut/d_reg[14][6]
+         uut2/uut/d_reg[8][14]
+         uut2/uut/d_reg[8][13]
+         uut2/uut/d_reg[8][12]
+         uut2/uut/d_reg[0][10]
+         uut2/uut/d_reg[0][9]
+         uut2/uut/d_reg[0][8]
+         uut2/uut/d_reg[0][7]
+         uut2/uut/d_reg[1][10]
+         uut2/uut/d_reg[1][9]
+         uut2/uut/d_reg[1][8]
+         uut2/uut/d_reg[1][7]
+         uut2/uut/d_reg[1][6]
+         uut2/uut/d_reg[2][8]
+         uut2/uut/d_reg[2][7]
+         uut2/uut/d_reg[2][6]
+         uut2/uut/d_reg[2][5]
+         uut2/uut/d_reg[2][4]
+         uut2/uut/d_reg[3][8]
+         uut2/uut/d_reg[3][7]
+         uut2/uut/d_reg[3][6]
+         uut2/uut/d_reg[3][5]
+         uut2/uut/d_reg[3][4]
+         uut2/uut/d_reg[5][14]
+         uut2/uut/d_reg[5][13]
+         uut2/uut/d_reg[7][14]
+         uut2/uut/d_reg[7][13]
+         uut2/uut/d_reg[9][15]
+         uut2/uut/d_reg[10][15]
+         uut2/uut/d_reg[11][15]
+         uut2/uut/d_reg[8][15]
+         uut2/uut/d_reg[4][15]
+         uut2/uut/d_reg[5][15]
+         uut2/uut/d_reg[6][15]
+         uut2/uut/d_reg[7][15]
+         uut2/uut/d_reg[15][6]
+         uut2/uut/d_reg[15][5]
+         uut2/uut/d_reg[15][4]
+         uut2/uut/d_reg[15][3]
+         uut2/uut/d_reg[15][2]
+         uut2/uut/d_reg[9][13]
+         uut2/uut/d_reg[9][12]
+         uut2/uut/d_reg[9][11]
+         uut2/uut/d_reg[9][10]
+         uut2/uut/d_reg[10][11]
+         uut2/uut/d_reg[10][10]
+         uut2/uut/d_reg[10][9]
+         uut2/uut/d_reg[10][8]
+         uut2/uut/d_reg[11][13]
+         uut2/uut/d_reg[11][12]
+         uut2/uut/d_reg[11][11]
+         uut2/uut/d_reg[11][10]
+         uut2/uut/d_reg[12][3]
+         uut2/uut/d_reg[12][2]
+         uut2/uut/d_reg[12][1]
+         uut2/uut/d_reg[13][3]
+         uut2/uut/d_reg[13][2]
+         uut2/uut/d_reg[13][1]
+         uut2/uut/d_reg[14][5]
+         uut2/uut/d_reg[14][4]
+         uut2/uut/d_reg[14][3]
+         uut2/uut/d_reg[14][2]
+         uut2/uut/d_reg[8][11]
+         uut2/uut/d_reg[8][10]
+         uut2/uut/d_reg[8][9]
+         uut2/uut/d_reg[8][8]
+         uut2/uut/d_reg[0][6]
+         uut2/uut/d_reg[0][5]
+         uut2/uut/d_reg[0][4]
+         uut2/uut/d_reg[0][3]
+         uut2/uut/d_reg[1][5]
+         uut2/uut/d_reg[1][4]
+         uut2/uut/d_reg[1][3]
+         uut2/uut/d_reg[1][2]
+         uut2/uut/d_reg[2][3]
+         uut2/uut/d_reg[2][2]
+         uut2/uut/d_reg[2][1]
+         uut2/uut/d_reg[3][3]
+         uut2/uut/d_reg[3][2]
+         uut2/uut/d_reg[3][1]
+         uut2/uut/d_reg[4][14]
+         uut2/uut/d_reg[4][13]
+         uut2/uut/d_reg[4][12]
+         uut2/uut/d_reg[4][11]
+         uut2/uut/d_reg[4][10]
+         uut2/uut/d_reg[5][12]
+         uut2/uut/d_reg[5][11]
+         uut2/uut/d_reg[5][10]
+         uut2/uut/d_reg[5][9]
+         uut2/uut/d_reg[6][14]
+         uut2/uut/d_reg[6][13]
+         uut2/uut/d_reg[6][12]
+         uut2/uut/d_reg[6][11]
+         uut2/uut/d_reg[6][10]
+         uut2/uut/d_reg[7][12]
+         uut2/uut/d_reg[7][11]
+         uut2/uut/d_reg[7][10]
+         uut2/uut/d_reg[7][9]
+         uut2/uut/d_reg[12][0]
+         uut2/uut/d_reg[13][0]
+         uut2/uut/d_reg[2][0]
+         uut2/uut/d_reg[3][0]
+         uut2/uut/d_reg[15][1]
+         uut2/uut/d_reg[9][9]
+         uut2/uut/d_reg[9][8]
+         uut2/uut/d_reg[9][7]
+         uut2/uut/d_reg[9][6]
+         uut2/uut/d_reg[10][7]
+         uut2/uut/d_reg[10][6]
+         uut2/uut/d_reg[10][5]
+         uut2/uut/d_reg[10][4]
+         uut2/uut/d_reg[11][9]
+         uut2/uut/d_reg[11][8]
+         uut2/uut/d_reg[11][7]
+         uut2/uut/d_reg[11][6]
+         uut2/uut/d_reg[14][1]
+         uut2/uut/d_reg[8][7]
+         uut2/uut/d_reg[8][6]
+         uut2/uut/d_reg[8][5]
+         uut2/uut/d_reg[8][4]
+         uut2/uut/d_reg[0][2]
+         uut2/uut/d_reg[0][1]
+         uut2/uut/d_reg[1][1]
+         uut2/uut/d_reg[4][9]
+         uut2/uut/d_reg[4][8]
+         uut2/uut/d_reg[4][7]
+         uut2/uut/d_reg[4][6]
+         uut2/uut/d_reg[5][8]
+         uut2/uut/d_reg[5][7]
+         uut2/uut/d_reg[5][6]
+         uut2/uut/d_reg[5][5]
+         uut2/uut/d_reg[5][4]
+         uut2/uut/d_reg[6][9]
+         uut2/uut/d_reg[6][8]
+         uut2/uut/d_reg[6][7]
+         uut2/uut/d_reg[6][6]
+         uut2/uut/d_reg[7][8]
+         uut2/uut/d_reg[7][7]
+         uut2/uut/d_reg[7][6]
+         uut2/uut/d_reg[7][5]
+         uut2/uut/d_reg[7][4]
+         uut2/uut/d_reg[15][0]
+         uut2/uut/d_reg[14][0]
+         uut2/uut/d_reg[0][0]
+         uut2/uut/d_reg[1][0]
+         uut2/uut/d_reg[9][5]
+         uut2/uut/d_reg[9][4]
+         uut2/uut/d_reg[9][3]
+         uut2/uut/d_reg[9][2]
+         uut2/uut/d_reg[9][1]
+         uut2/uut/d_reg[10][3]
+         uut2/uut/d_reg[10][2]
+         uut2/uut/d_reg[10][1]
+         uut2/uut/d_reg[11][5]
+         uut2/uut/d_reg[11][4]
+         uut2/uut/d_reg[11][3]
+         uut2/uut/d_reg[11][2]
+         uut2/uut/d_reg[8][3]
+         uut2/uut/d_reg[8][2]
+         uut2/uut/d_reg[8][1]
+         uut2/uut/d_reg[4][5]
+         uut2/uut/d_reg[4][4]
+         uut2/uut/d_reg[4][3]
+         uut2/uut/d_reg[4][2]
+         uut2/uut/d_reg[5][3]
+         uut2/uut/d_reg[5][2]
+         uut2/uut/d_reg[5][1]
+         uut2/uut/d_reg[6][5]
+         uut2/uut/d_reg[6][4]
+         uut2/uut/d_reg[6][3]
+         uut2/uut/d_reg[6][2]
+         uut2/uut/d_reg[7][3]
+         uut2/uut/d_reg[7][2]
+         uut2/uut/d_reg[7][1]
+         uut2/uut/d_reg[8][0]
+         uut2/uut/d_reg[9][0]
+         uut2/uut/d_reg[10][0]
+         uut2/uut/d_reg[5][0]
+         uut2/uut/d_reg[7][0]
+         uut2/uut/d_reg[11][1]
+         uut2/uut/d_reg[4][1]
+         uut2/uut/d_reg[6][1]
+         uut2/uut/d_reg[11][0]
+         uut2/uut/d_reg[4][0]
+         uut2/uut/d_reg[6][0]
+         uut2/uut/odd_out_reg[15]
+         uut2/uut/odd_out_reg[14]
+         uut2/uut/odd_out_reg[13]
+         uut2/uut/odd_out_reg[12]
+         uut2/uut/even_out_reg[15]
+         uut2/uut/even_out_reg[14]
+         uut2/uut/even_out_reg[13]
+         uut2/uut/even_out_reg[12]
+         uut2/uut/odd_out_reg[11]
+         uut2/uut/odd_out_reg[10]
+         uut2/uut/odd_out_reg[9]
+         uut2/uut/odd_out_reg[8]
+         uut2/uut/even_out_reg[11]
+         uut2/uut/even_out_reg[10]
+         uut2/uut/even_out_reg[9]
+         uut2/uut/even_out_reg[8]
+         uut2/uut/odd_out_reg[7]
+         uut2/uut/odd_out_reg[6]
+         uut2/uut/odd_out_reg[5]
+         uut2/uut/odd_out_reg[4]
+         uut2/uut/even_out_reg[7]
+         uut2/uut/even_out_reg[6]
+         uut2/uut/even_out_reg[5]
+         uut2/uut/even_out_reg[4]
+         uut2/uut/odd_out_reg[3]
+         uut2/uut/odd_out_reg[2]
+         uut2/uut/odd_out_reg[1]
+         uut2/uut/odd_out_reg[0]
+         uut2/uut/even_out_reg[3]
+         uut2/uut/even_out_reg[2]
+         uut2/uut/even_out_reg[1]
+         uut2/uut/even_out_reg[0]
+         uut2/uut1/SEL_reg
+         uut2/uut5/x_n3_reg[14]
+         uut2/uut5/x_n3_reg[13]
+         uut2/uut5/x_n3_reg[12]
+         uut2/uut5/x_n3_reg[11]
+         uut2/uut5/x_n3_reg[4]
+         uut2/uut5/x_n3_reg[10]
+         uut2/uut5/x_n3_reg[9]
+         uut2/uut5/x_n3_reg[8]
+         uut2/uut5/x_n3_reg[7]
+         uut2/uut5/x_n1_reg[15]
+         uut2/uut5/x_n2_reg[15]
+         uut2/uut5/x_n1_reg[14]
+         uut2/uut5/x_n1_reg[13]
+         uut2/uut5/x_n2_reg[14]
+         uut2/uut5/x_n2_reg[13]
+         uut2/uut5/x_n3_reg[3]
+         uut2/uut5/x_n3_reg[2]
+         uut2/uut5/x_n3_reg[1]
+         uut2/uut5/x_n3_reg[0]
+         uut2/uut5/x_n3_reg[6]
+         uut2/uut5/x_n3_reg[5]
+         uut2/uut5/x_n1_reg[12]
+         uut2/uut5/x_n1_reg[11]
+         uut2/uut5/x_n1_reg[10]
+         uut2/uut5/x_n1_reg[9]
+         uut2/uut5/x_n2_reg[12]
+         uut2/uut5/x_n2_reg[11]
+         uut2/uut5/x_n2_reg[10]
+         uut2/uut5/x_n2_reg[9]
+         uut2/uut5/x_n1_reg[8]
+         uut2/uut5/x_n1_reg[7]
+         uut2/uut5/x_n1_reg[6]
+         uut2/uut5/x_n1_reg[5]
+         uut2/uut5/x_n2_reg[8]
+         uut2/uut5/x_n2_reg[7]
+         uut2/uut5/x_n2_reg[6]
+         uut2/uut5/x_n2_reg[5]
+         uut2/uut5/x_n1_reg[2]
+         uut2/uut5/x_n1_reg[1]
+         uut2/uut5/x_n1_reg[0]
+         uut2/uut5/x_n2_reg[2]
+         uut2/uut5/x_n2_reg[0]
+         uut2/uut5/x_n1_reg[4]
+         uut2/uut5/x_n1_reg[3]
+         uut2/uut5/x_n2_reg[4]
+         uut2/uut5/x_n2_reg[3]
+         uut2/uut5/x_n3_reg[15]
+         uut2/uut5/x_n2_reg[1]
+         uut2/uut2/x_n3_reg[15]
+         uut2/uut2/x_n1_reg[15]
+         uut2/uut2/x_n2_reg[15]
+         uut2/uut2/x_n3_reg[14]
+         uut2/uut2/x_n3_reg[13]
+         uut2/uut2/x_n3_reg[12]
+         uut2/uut2/x_n3_reg[11]
+         uut2/uut2/x_n2_reg[12]
+         uut2/uut2/x_n2_reg[11]
+         uut2/uut2/x_n3_reg[10]
+         uut2/uut2/x_n3_reg[9]
+         uut2/uut2/x_n3_reg[8]
+         uut2/uut2/x_n3_reg[7]
+         uut2/uut2/x_n2_reg[7]
+         uut2/uut2/x_n1_reg[2]
+         uut2/uut2/x_n1_reg[1]
+         uut2/uut2/x_n1_reg[0]
+         uut2/uut2/x_n2_reg[2]
+         uut2/uut2/x_n2_reg[0]
+         uut2/uut2/x_n3_reg[6]
+         uut2/uut2/x_n3_reg[5]
+         uut2/uut2/x_n3_reg[4]
+         uut2/uut2/x_n3_reg[3]
+         uut2/uut2/x_n3_reg[2]
+         uut2/uut2/x_n2_reg[3]
+         uut2/uut2/x_n3_reg[0]
+         uut2/uut2/x_n3_reg[1]
+         uut2/uut2/x_n1_reg[14]
+         uut2/uut2/x_n1_reg[13]
+         uut2/uut2/x_n1_reg[12]
+         uut2/uut2/x_n2_reg[14]
+         uut2/uut2/x_n2_reg[13]
+         uut2/uut2/x_n1_reg[11]
+         uut2/uut2/x_n1_reg[10]
+         uut2/uut2/x_n1_reg[9]
+         uut2/uut2/x_n1_reg[8]
+         uut2/uut2/x_n2_reg[10]
+         uut2/uut2/x_n2_reg[9]
+         uut2/uut2/x_n2_reg[8]
+         uut2/uut2/x_n1_reg[7]
+         uut2/uut2/x_n1_reg[6]
+         uut2/uut2/x_n1_reg[5]
+         uut2/uut2/x_n1_reg[4]
+         uut2/uut2/x_n2_reg[6]
+         uut2/uut2/x_n2_reg[5]
+         uut2/uut2/x_n2_reg[4]
+         uut2/uut2/x_n1_reg[3]
+         uut2/uut2/x_n2_reg[1]
+         uut1/uut5/x_n3_reg[14]
+         uut1/uut5/x_n3_reg[13]
+         uut1/uut5/x_n3_reg[12]
+         uut1/uut5/x_n3_reg[11]
+         uut1/uut5/x_n3_reg[4]
+         uut1/uut5/x_n3_reg[10]
+         uut1/uut5/x_n3_reg[9]
+         uut1/uut5/x_n3_reg[8]
+         uut1/uut5/x_n3_reg[7]
+         uut1/uut5/x_n1_reg[15]
+         uut1/uut5/x_n2_reg[15]
+         uut1/uut5/x_n1_reg[14]
+         uut1/uut5/x_n1_reg[13]
+         uut1/uut5/x_n2_reg[14]
+         uut1/uut5/x_n2_reg[13]
+         uut1/uut5/x_n3_reg[3]
+         uut1/uut5/x_n3_reg[2]
+         uut1/uut5/x_n3_reg[1]
+         uut1/uut5/x_n3_reg[0]
+         uut1/uut5/x_n3_reg[6]
+         uut1/uut5/x_n3_reg[5]
+         uut1/uut5/x_n1_reg[12]
+         uut1/uut5/x_n1_reg[11]
+         uut1/uut5/x_n1_reg[10]
+         uut1/uut5/x_n1_reg[9]
+         uut1/uut5/x_n2_reg[12]
+         uut1/uut5/x_n2_reg[11]
+         uut1/uut5/x_n2_reg[10]
+         uut1/uut5/x_n2_reg[9]
+         uut1/uut5/x_n1_reg[8]
+         uut1/uut5/x_n1_reg[7]
+         uut1/uut5/x_n1_reg[6]
+         uut1/uut5/x_n1_reg[5]
+         uut1/uut5/x_n2_reg[8]
+         uut1/uut5/x_n2_reg[7]
+         uut1/uut5/x_n2_reg[6]
+         uut1/uut5/x_n2_reg[5]
+         uut1/uut5/x_n1_reg[2]
+         uut1/uut5/x_n1_reg[1]
+         uut1/uut5/x_n1_reg[0]
+         uut1/uut5/x_n2_reg[2]
+         uut1/uut5/x_n2_reg[0]
+         uut1/uut5/x_n1_reg[4]
+         uut1/uut5/x_n1_reg[3]
+         uut1/uut5/x_n2_reg[4]
+         uut1/uut5/x_n2_reg[3]
+         uut1/uut5/x_n3_reg[15]
+         uut1/uut5/x_n2_reg[1]
+         uut2/uut6/count_reg[1]
+         uut2/uut6/count_reg[0]
+         uut2/uut3/count_reg[1]
+         uut2/uut3/count_reg[0]
+         uut1/uut6/count_reg[1]
+         uut1/uut6/count_reg[0]
+
+Information: Test design rule checking completed. (TEST-123)
+1
+############################# Preview DFT ##############################
+preview_dft -show scan_summary
+  Information: Using test design rule information from previous dft_drc run.
+  Architecting Scan Chains
+
+****************************************
+Preview_dft report
+For    : 'Insert_dft' command
+Design : MIMO
+Version: K-2015.06
+Date   : Mon Jun 29 05:27:37 2026
+****************************************
+
+Number of chains: 2
+Scan methodology: full_scan
+Scan style: multiplexed_flip_flop
+Clock domain: no_mix
+
+Chain      Scan Ports (si --> so)        # of Cells   Inst/Chain               Clock (port, time, edge)
+-----      ----------------------        ----------   ----------               ------------------------
+S 1        SI -->  SO                           451   gen4/count_reg[0]        (scan_clk, 30.0, rising) 
+S 2        test_si2 -->  test_so2               451   uut2/uut2/x_n2_reg[0]    (scan_clk, 30.0, rising) 
+1
+############################# Insert DFT ###############################
+insert_dft
+Loading db file '/home/IC/chain_test/std_cells/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db'
+Loading db file '/home/IC/chain_test/std_cells/scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db'
+Loading db file '/home/IC/chain_test/std_cells/scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db'
+  Information: Using test design rule information from previous dft_drc run.
+  Architecting Scan Chains
+  Routing Scan Chains
+  Routing Global Signals
+  Mapping New Logic
+Resetting current test mode
+  Beginning Mapping Optimizations
+  -------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+
+
+  Beginning Phase 1 Design Rule Fixing  (max_transition)  (max_capacitance)
+  ------------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:46  110149.7      0.00       0.0      39.8 uut2/uut2/x_n1[15]       
+    0:00:46  110149.7      0.00       0.0      39.8 uut2/uut2/x_n1[15]       
+    0:00:46  110149.7      0.00       0.0      39.8 uut2/uut2/x_n1[15]       
+    0:00:46  110149.7      0.00       0.0      39.8 uut2/uut2/x_n1[15]       
+    0:00:46  110159.1      0.00       0.0      34.9 uut2/uut2/net28564       
+    0:00:46  110176.8      0.00       0.0      61.1 SE                       
+    0:00:46  110176.8      0.00       0.0      61.1 SE                       
+    0:00:46  110176.8      0.00       0.0      61.1 SE                       
+    0:00:46  110176.8      0.00       0.0      61.1 SE                       
+    0:00:46  110187.4      0.00       0.0      59.9 net28572                 
+    0:00:46  110187.4      0.00       0.0      59.9 net28572                 
+    0:00:46  110187.4      0.00       0.0      59.9 net28572                 
+    0:00:46  110187.4      0.00       0.0      59.9 net28572                 
+    0:00:46  110194.4      0.00       0.0      59.9 net28571                 
+    0:00:46  110203.8      0.00       0.0      53.9 net28581                 
+    0:00:46  110213.3      0.00       0.0      47.8 net28587                 
+    0:00:46  110209.7      0.00       0.0      45.1 net28574                 
+    0:00:46  110209.7      0.00       0.0      45.1 net28574                 
+    0:00:46  110220.3      0.00       0.0      45.1 net28571                 
+    0:00:46  110220.3      0.00       0.0      45.1 net28571                 
+    0:00:46  110220.3      0.00       0.0      45.1 net28571                 
+    0:00:46  110229.7      0.00       0.0      44.5 net28596                 
+    0:00:46  110216.8      0.00       0.0      38.8 uut2/uut2/net28568       
+    0:00:46  110216.8      0.00       0.0      38.6 uut2/uut2/n56            
+    0:00:46  110216.8      0.00       0.0      38.6 uut2/uut2/n56            
+    0:00:46  110216.8      0.00       0.0      38.6 uut2/uut2/n56            
+    0:00:46  110196.8      0.00       0.0      32.4 net28592                 
+    0:00:46  110200.3      0.00       0.0      31.9 SE                       
+    0:00:46  110209.7      0.00       0.0      31.5 net28602                 
+    0:00:46  110205.0      0.00       0.0      31.4 uut2/uut2/n56            
+    0:00:46  110195.6      0.00       0.0      27.3 net28590                 
+    0:00:46  110212.1      0.00       0.0      25.8 net28570                 
+    0:00:46  110212.1      0.00       0.0      25.8 net28570                 
+    0:00:46  110249.7      0.00       0.0      24.7 uut1/uut/test_se         
+    0:00:46  110249.7      0.00       0.0      24.7 uut1/uut/test_se         
+    0:00:46  110249.7      0.00       0.0      24.7 uut1/uut/test_se         
+    0:00:46  110287.4      0.00       0.0      23.8 uut2/uut/test_se         
+    0:00:46  110287.4      0.00       0.0      23.8 uut2/uut/test_se         
+    0:00:46  110287.4      0.00       0.0      23.8 uut2/uut/test_se         
+    0:00:46  110301.5      0.00       0.0      22.6 uut1/uut2/test_se        
+    0:00:46  110301.5      0.00       0.0      22.6 uut1/uut2/test_se        
+    0:00:46  110301.5      0.00       0.0      22.6 uut1/uut2/test_se        
+    0:00:46  110315.6      0.00       0.0      21.4 uut1/uut5/test_se        
+    0:00:46  110315.6      0.00       0.0      21.4 uut1/uut5/test_se        
+    0:00:46  110315.6      0.00       0.0      21.4 uut1/uut5/test_se        
+    0:00:46  110329.7      0.00       0.0      20.2 uut2/uut5/test_se        
+    0:00:46  110329.7      0.00       0.0      20.2 uut2/uut5/test_se        
+    0:00:46  110329.7      0.00       0.0      20.2 uut2/uut5/test_se        
+    0:00:47  110348.6      0.00       0.0      17.2 uut1/uut/net28620        
+    0:00:47  110348.6      0.00       0.0      17.2 uut1/uut/net28620        
+    0:00:47  110367.4      0.00       0.0      14.1 uut2/uut/net28628        
+    0:00:47  110367.4      0.00       0.0      14.1 uut2/uut/net28628        
+    0:00:47  110386.2      0.00       0.0      11.0 uut1/uut/net28620        
+    0:00:47  110386.2      0.00       0.0      11.0 uut1/uut/net28620        
+    0:00:47  110405.1      0.00       0.0       7.9 uut2/uut/net28628        
+    0:00:47  110405.1      0.00       0.0       7.9 uut2/uut/net28628        
+    0:00:47  110412.1      0.00       0.0       7.8 uut3/test_se             
+    0:00:47  110419.2      0.00       0.0       7.7 uut4/test_se             
+    0:00:47  110426.2      0.00       0.0       7.5 uut2/uut2/test_se        
+    0:00:47  110435.7      0.00       0.0       7.1 uut1/uut/net28620        
+    0:00:47  110435.7      0.00       0.0       7.1 uut1/uut/net28620        
+    0:00:47  110445.1      0.00       0.0       6.7 uut2/uut/net28628        
+    0:00:47  110445.1      0.00       0.0       6.7 uut2/uut/net28628        
+
+
+  Beginning Phase 2 Design Rule Fixing  (max_transition)  (max_capacitance)
+  ------------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:47  110448.6      0.00       0.0       6.7                          
+    0:00:47  110452.1      0.00       0.0       6.7                          
+    0:00:47  110455.7      0.00       0.0       6.7                          
+    0:00:47  110459.2      0.00       0.0       6.7                          
+
+1
+######################## Optimize Logic post DFT #######################
+compile -scan -incremental
+Information: Choosing a test methodology will restrict the optimization of sequential cells. (UIO-12)
+
+Information: There are 1264 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+Warning: Operating condition scmetro_tsmc_cl013g_rvt_ss_1p08v_125c set on design MIMO has different process,
+voltage and temperatures parameters than the parameters at which target library 
+scmetro_tsmc_cl013g_rvt_tt_1p2v_25c is characterized. Delays may be inaccurate as a result. (OPT-998)
+
+  Beginning Pass 1 Mapping  (Incremental)
+  ------------------------
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Warning: Test logic has been inserted in up4_filter_3_DW01_add_2.
+ 	Skipping incremental implementation selection for that design. (SYNH-45)
+Warning: Test logic has been inserted in up4_filter_1_DW01_add_2.
+ 	Skipping incremental implementation selection for that design. (SYNH-45)
+
+  Beginning Mapping Optimizations  (Medium effort)  (Incremental)
+  -------------------------------
+
+  Beginning Incremental Implementation Selection
+  ----------------------------------------------
+  Selecting implementations
+  Selecting implementations
+  Selecting implementations
+  Selecting implementations
+  Selecting implementations
+  Selecting implementations
+  Selecting implementations
+  Selecting implementations
+  Selecting implementations
+  Selecting implementations
+Warning: Test logic has been inserted in up4_filter_3_DW01_add_2.
+ 	Skipping incremental implementation selection for that design. (SYNH-45)
+  Selecting implementations
+  Selecting implementations
+  Selecting implementations
+Warning: Test logic has been inserted in up4_filter_1_DW01_add_2.
+ 	Skipping incremental implementation selection for that design. (SYNH-45)
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:04  110445.1      0.00       0.0       6.7                          
+    0:00:05  110414.5      0.00       0.0       6.7                          
+    0:00:06  110414.5      0.00       0.0       6.7                          
+
+
+  Beginning Design Rule Fixing  (max_transition)  (max_capacitance)
+  ----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:06  110414.5      0.00       0.0       6.7                          
+    0:00:07  110428.6      0.00       0.0       0.0                          
+Loading db file '/home/IC/chain_test/std_cells/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db'
+Loading db file '/home/IC/chain_test/std_cells/scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db'
+Loading db file '/home/IC/chain_test/std_cells/scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+###################### Design Rule Checking post DFT ###################
+dft_drc -verbose -coverage_estimate
+In mode: Internal_scan...
+  Design has scan chains in this mode
+  Design is scan routed
+  Post-DFT DRC enabled
+
+Information: Starting test design rule checking. (TEST-222)
+  Loading test protocol
+  ...basic checks...
+  ...basic sequential cell checks...
+  ...checking vector rules...
+  ...checking clock rules...
+  ...checking scan chain rules...
+  ...checking scan compression rules...
+  ...checking X-state rules...
+  ...checking tristate rules...
+  ...extracting scan details...
+
+-----------------------------------------------------------------
+  DRC Report
+
+  Total violations: 0
+
+-----------------------------------------------------------------
+
+
+Test Design rule checking did not find violations
+
+-----------------------------------------------------------------
+  Sequential Cell Report
+
+  0 out of 902 sequential cells have violations
+
+-----------------------------------------------------------------
+
+SEQUENTIAL CELLS WITHOUT VIOLATIONS
+      * 902 cells are valid scan cells
+         gen4/div_clk_reg
+         gen4/count_reg[5]
+         gen4/count_reg[4]
+         gen4/count_reg[3]
+         gen4/count_reg[6]
+         gen4/count_reg[0]
+         gen4/count_reg[2]
+         gen4/count_reg[1]
+         gen4/odd_edge_tog_reg
+         gen128/odd_edge_tog_reg
+         gen128/div_clk_reg
+         gen128/count_reg[5]
+         gen128/count_reg[4]
+         gen128/count_reg[3]
+         gen128/count_reg[6]
+         gen128/count_reg[0]
+         gen128/count_reg[2]
+         gen128/count_reg[1]
+         gen16/odd_edge_tog_reg
+         gen16/div_clk_reg
+         gen16/count_reg[5]
+         gen16/count_reg[4]
+         gen16/count_reg[3]
+         gen16/count_reg[6]
+         gen16/count_reg[0]
+         gen16/count_reg[2]
+         gen16/count_reg[1]
+         gen64/odd_edge_tog_reg
+         gen64/div_clk_reg
+         gen64/count_reg[5]
+         gen64/count_reg[4]
+         gen64/count_reg[3]
+         gen64/count_reg[6]
+         gen64/count_reg[0]
+         gen64/count_reg[2]
+         gen64/count_reg[1]
+         gen_4/div_clk_reg
+         gen_4/count_reg[5]
+         gen_4/count_reg[4]
+         gen_4/count_reg[3]
+         gen_4/count_reg[6]
+         gen_4/count_reg[0]
+         gen_4/count_reg[2]
+         gen_4/count_reg[1]
+         gen_4/odd_edge_tog_reg
+         uut3/out_1bit_reg
+         uut3/acc1_reg[16]
+         uut3/acc1_reg[15]
+         uut3/acc2_reg[16]
+         uut3/acc2_reg[15]
+         uut3/acc1_reg[14]
+         uut3/acc1_reg[13]
+         uut3/acc1_reg[12]
+         uut3/acc1_reg[11]
+         uut3/acc2_reg[14]
+         uut3/acc2_reg[13]
+         uut3/acc2_reg[12]
+         uut3/acc2_reg[11]
+         uut3/acc2_reg[10]
+         uut3/acc1_reg[10]
+         uut3/acc1_reg[9]
+         uut3/acc1_reg[8]
+         uut3/acc1_reg[7]
+         uut3/acc2_reg[9]
+         uut3/acc2_reg[8]
+         uut3/acc2_reg[7]
+         uut3/acc2_reg[6]
+         uut3/acc1_reg[6]
+         uut3/acc1_reg[5]
+         uut3/acc1_reg[4]
+         uut3/acc1_reg[3]
+         uut3/acc1_reg[2]
+         uut3/acc2_reg[5]
+         uut3/acc2_reg[4]
+         uut3/acc2_reg[3]
+         uut3/acc2_reg[2]
+         uut3/acc1_reg[1]
+         uut3/acc1_reg[0]
+         uut3/acc2_reg[1]
+         uut3/acc2_reg[0]
+         uut3/acc1_reg[17]
+         uut3/acc2_reg[17]
+         uut4/acc1_reg[16]
+         uut4/acc1_reg[15]
+         uut4/acc2_reg[16]
+         uut4/acc2_reg[15]
+         uut4/acc1_reg[14]
+         uut4/acc1_reg[13]
+         uut4/acc1_reg[12]
+         uut4/acc1_reg[11]
+         uut4/acc2_reg[14]
+         uut4/acc2_reg[13]
+         uut4/acc2_reg[12]
+         uut4/acc2_reg[11]
+         uut4/acc2_reg[10]
+         uut4/acc1_reg[10]
+         uut4/acc1_reg[9]
+         uut4/acc1_reg[8]
+         uut4/acc1_reg[7]
+         uut4/acc2_reg[9]
+         uut4/acc2_reg[8]
+         uut4/acc2_reg[7]
+         uut4/acc2_reg[6]
+         uut4/acc1_reg[6]
+         uut4/acc1_reg[5]
+         uut4/acc1_reg[4]
+         uut4/acc1_reg[3]
+         uut4/acc1_reg[2]
+         uut4/acc2_reg[5]
+         uut4/acc2_reg[4]
+         uut4/acc2_reg[3]
+         uut4/acc2_reg[2]
+         uut4/acc1_reg[1]
+         uut4/acc2_reg[1]
+         uut4/acc2_reg[0]
+         uut4/acc1_reg[0]
+         uut4/acc2_reg[17]
+         uut4/acc1_reg[17]
+         uut4/out_1bit_reg
+         uut5/I_reg_reg
+         uut5/Q_reg_reg
+         uut5/counter_reg[1]
+         uut5/counter_reg[0]
+         uut5/SYS_out_reg
+         uut1/uut/d_reg[12][14]
+         uut1/uut/d_reg[12][13]
+         uut1/uut/d_reg[12][12]
+         uut1/uut/d_reg[13][14]
+         uut1/uut/d_reg[13][13]
+         uut1/uut/d_reg[2][14]
+         uut1/uut/d_reg[2][13]
+         uut1/uut/d_reg[3][14]
+         uut1/uut/d_reg[3][13]
+         uut1/uut/d_reg[12][15]
+         uut1/uut/d_reg[13][15]
+         uut1/uut/d_reg[14][15]
+         uut1/uut/d_reg[2][15]
+         uut1/uut/d_reg[3][15]
+         uut1/uut/d_reg[15][14]
+         uut1/uut/d_reg[15][13]
+         uut1/uut/d_reg[15][12]
+         uut1/uut/d_reg[15][11]
+         uut1/uut/d_reg[12][11]
+         uut1/uut/d_reg[12][10]
+         uut1/uut/d_reg[12][9]
+         uut1/uut/d_reg[12][8]
+         uut1/uut/d_reg[13][12]
+         uut1/uut/d_reg[13][11]
+         uut1/uut/d_reg[13][10]
+         uut1/uut/d_reg[13][9]
+         uut1/uut/d_reg[13][8]
+         uut1/uut/d_reg[14][14]
+         uut1/uut/d_reg[14][13]
+         uut1/uut/d_reg[14][12]
+         uut1/uut/d_reg[14][11]
+         uut1/uut/d_reg[14][10]
+         uut1/uut/d_reg[0][14]
+         uut1/uut/d_reg[0][13]
+         uut1/uut/d_reg[0][12]
+         uut1/uut/d_reg[0][11]
+         uut1/uut/d_reg[1][14]
+         uut1/uut/d_reg[1][13]
+         uut1/uut/d_reg[1][12]
+         uut1/uut/d_reg[1][11]
+         uut1/uut/d_reg[2][12]
+         uut1/uut/d_reg[2][11]
+         uut1/uut/d_reg[2][10]
+         uut1/uut/d_reg[2][9]
+         uut1/uut/d_reg[3][12]
+         uut1/uut/d_reg[3][11]
+         uut1/uut/d_reg[3][10]
+         uut1/uut/d_reg[3][9]
+         uut1/uut/d_reg[15][15]
+         uut1/uut/d_reg[0][15]
+         uut1/uut/d_reg[1][15]
+         uut1/uut/d_reg[15][10]
+         uut1/uut/d_reg[15][9]
+         uut1/uut/d_reg[15][8]
+         uut1/uut/d_reg[15][7]
+         uut1/uut/d_reg[9][14]
+         uut1/uut/d_reg[10][14]
+         uut1/uut/d_reg[10][13]
+         uut1/uut/d_reg[10][12]
+         uut1/uut/d_reg[11][14]
+         uut1/uut/d_reg[12][7]
+         uut1/uut/d_reg[12][6]
+         uut1/uut/d_reg[12][5]
+         uut1/uut/d_reg[12][4]
+         uut1/uut/d_reg[13][7]
+         uut1/uut/d_reg[13][6]
+         uut1/uut/d_reg[13][5]
+         uut1/uut/d_reg[13][4]
+         uut1/uut/d_reg[14][9]
+         uut1/uut/d_reg[14][8]
+         uut1/uut/d_reg[14][7]
+         uut1/uut/d_reg[14][6]
+         uut1/uut/d_reg[8][14]
+         uut1/uut/d_reg[8][13]
+         uut1/uut/d_reg[8][12]
+         uut1/uut/d_reg[0][10]
+         uut1/uut/d_reg[0][9]
+         uut1/uut/d_reg[0][8]
+         uut1/uut/d_reg[0][7]
+         uut1/uut/d_reg[1][10]
+         uut1/uut/d_reg[1][9]
+         uut1/uut/d_reg[1][8]
+         uut1/uut/d_reg[1][7]
+         uut1/uut/d_reg[1][6]
+         uut1/uut/d_reg[2][8]
+         uut1/uut/d_reg[2][7]
+         uut1/uut/d_reg[2][6]
+         uut1/uut/d_reg[2][5]
+         uut1/uut/d_reg[2][4]
+         uut1/uut/d_reg[3][8]
+         uut1/uut/d_reg[3][7]
+         uut1/uut/d_reg[3][6]
+         uut1/uut/d_reg[3][5]
+         uut1/uut/d_reg[3][4]
+         uut1/uut/d_reg[5][14]
+         uut1/uut/d_reg[5][13]
+         uut1/uut/d_reg[7][14]
+         uut1/uut/d_reg[7][13]
+         uut1/uut/d_reg[9][15]
+         uut1/uut/d_reg[10][15]
+         uut1/uut/d_reg[11][15]
+         uut1/uut/d_reg[8][15]
+         uut1/uut/d_reg[4][15]
+         uut1/uut/d_reg[5][15]
+         uut1/uut/d_reg[6][15]
+         uut1/uut/d_reg[7][15]
+         uut1/uut/d_reg[15][6]
+         uut1/uut/d_reg[15][5]
+         uut1/uut/d_reg[15][4]
+         uut1/uut/d_reg[15][3]
+         uut1/uut/d_reg[15][2]
+         uut1/uut/d_reg[9][13]
+         uut1/uut/d_reg[9][12]
+         uut1/uut/d_reg[9][11]
+         uut1/uut/d_reg[9][10]
+         uut1/uut/d_reg[10][11]
+         uut1/uut/d_reg[10][10]
+         uut1/uut/d_reg[10][9]
+         uut1/uut/d_reg[10][8]
+         uut1/uut/d_reg[11][13]
+         uut1/uut/d_reg[11][12]
+         uut1/uut/d_reg[11][11]
+         uut1/uut/d_reg[11][10]
+         uut1/uut/d_reg[12][3]
+         uut1/uut/d_reg[12][2]
+         uut1/uut/d_reg[12][1]
+         uut1/uut/d_reg[13][3]
+         uut1/uut/d_reg[13][2]
+         uut1/uut/d_reg[13][1]
+         uut1/uut/d_reg[14][5]
+         uut1/uut/d_reg[14][4]
+         uut1/uut/d_reg[14][3]
+         uut1/uut/d_reg[14][2]
+         uut1/uut/d_reg[8][11]
+         uut1/uut/d_reg[8][10]
+         uut1/uut/d_reg[8][9]
+         uut1/uut/d_reg[8][8]
+         uut1/uut/d_reg[0][6]
+         uut1/uut/d_reg[0][5]
+         uut1/uut/d_reg[0][4]
+         uut1/uut/d_reg[0][3]
+         uut1/uut/d_reg[1][5]
+         uut1/uut/d_reg[1][4]
+         uut1/uut/d_reg[1][3]
+         uut1/uut/d_reg[1][2]
+         uut1/uut/d_reg[2][3]
+         uut1/uut/d_reg[2][2]
+         uut1/uut/d_reg[2][1]
+         uut1/uut/d_reg[3][3]
+         uut1/uut/d_reg[3][2]
+         uut1/uut/d_reg[3][1]
+         uut1/uut/d_reg[4][14]
+         uut1/uut/d_reg[4][13]
+         uut1/uut/d_reg[4][12]
+         uut1/uut/d_reg[4][11]
+         uut1/uut/d_reg[4][10]
+         uut1/uut/d_reg[5][12]
+         uut1/uut/d_reg[5][11]
+         uut1/uut/d_reg[5][10]
+         uut1/uut/d_reg[5][9]
+         uut1/uut/d_reg[6][14]
+         uut1/uut/d_reg[6][13]
+         uut1/uut/d_reg[6][12]
+         uut1/uut/d_reg[6][11]
+         uut1/uut/d_reg[6][10]
+         uut1/uut/d_reg[7][12]
+         uut1/uut/d_reg[7][11]
+         uut1/uut/d_reg[7][10]
+         uut1/uut/d_reg[7][9]
+         uut1/uut/d_reg[12][0]
+         uut1/uut/d_reg[13][0]
+         uut1/uut/d_reg[2][0]
+         uut1/uut/d_reg[3][0]
+         uut1/uut/d_reg[15][1]
+         uut1/uut/d_reg[9][9]
+         uut1/uut/d_reg[9][8]
+         uut1/uut/d_reg[9][7]
+         uut1/uut/d_reg[9][6]
+         uut1/uut/d_reg[10][7]
+         uut1/uut/d_reg[10][6]
+         uut1/uut/d_reg[10][5]
+         uut1/uut/d_reg[10][4]
+         uut1/uut/d_reg[11][9]
+         uut1/uut/d_reg[11][8]
+         uut1/uut/d_reg[11][7]
+         uut1/uut/d_reg[11][6]
+         uut1/uut/d_reg[14][1]
+         uut1/uut/d_reg[8][7]
+         uut1/uut/d_reg[8][6]
+         uut1/uut/d_reg[8][5]
+         uut1/uut/d_reg[8][4]
+         uut1/uut/d_reg[0][2]
+         uut1/uut/d_reg[0][1]
+         uut1/uut/d_reg[1][1]
+         uut1/uut/d_reg[4][9]
+         uut1/uut/d_reg[4][8]
+         uut1/uut/d_reg[4][7]
+         uut1/uut/d_reg[4][6]
+         uut1/uut/d_reg[5][8]
+         uut1/uut/d_reg[5][7]
+         uut1/uut/d_reg[5][6]
+         uut1/uut/d_reg[5][5]
+         uut1/uut/d_reg[5][4]
+         uut1/uut/d_reg[6][9]
+         uut1/uut/d_reg[6][8]
+         uut1/uut/d_reg[6][7]
+         uut1/uut/d_reg[6][6]
+         uut1/uut/d_reg[7][8]
+         uut1/uut/d_reg[7][7]
+         uut1/uut/d_reg[7][6]
+         uut1/uut/d_reg[7][5]
+         uut1/uut/d_reg[7][4]
+         uut1/uut/d_reg[15][0]
+         uut1/uut/d_reg[14][0]
+         uut1/uut/d_reg[0][0]
+         uut1/uut/d_reg[1][0]
+         uut1/uut/d_reg[9][5]
+         uut1/uut/d_reg[9][4]
+         uut1/uut/d_reg[9][3]
+         uut1/uut/d_reg[9][2]
+         uut1/uut/d_reg[9][1]
+         uut1/uut/d_reg[10][3]
+         uut1/uut/d_reg[10][2]
+         uut1/uut/d_reg[10][1]
+         uut1/uut/d_reg[11][5]
+         uut1/uut/d_reg[11][4]
+         uut1/uut/d_reg[11][3]
+         uut1/uut/d_reg[11][2]
+         uut1/uut/d_reg[8][3]
+         uut1/uut/d_reg[8][2]
+         uut1/uut/d_reg[8][1]
+         uut1/uut/d_reg[4][5]
+         uut1/uut/d_reg[4][4]
+         uut1/uut/d_reg[4][3]
+         uut1/uut/d_reg[4][2]
+         uut1/uut/d_reg[5][3]
+         uut1/uut/d_reg[5][2]
+         uut1/uut/d_reg[5][1]
+         uut1/uut/d_reg[6][5]
+         uut1/uut/d_reg[6][4]
+         uut1/uut/d_reg[6][3]
+         uut1/uut/d_reg[6][2]
+         uut1/uut/d_reg[7][3]
+         uut1/uut/d_reg[7][2]
+         uut1/uut/d_reg[7][1]
+         uut1/uut/d_reg[8][0]
+         uut1/uut/d_reg[9][0]
+         uut1/uut/d_reg[10][0]
+         uut1/uut/d_reg[5][0]
+         uut1/uut/d_reg[7][0]
+         uut1/uut/d_reg[11][1]
+         uut1/uut/d_reg[4][1]
+         uut1/uut/d_reg[6][1]
+         uut1/uut/d_reg[11][0]
+         uut1/uut/d_reg[4][0]
+         uut1/uut/d_reg[6][0]
+         uut1/uut/odd_out_reg[15]
+         uut1/uut/odd_out_reg[14]
+         uut1/uut/odd_out_reg[13]
+         uut1/uut/even_out_reg[15]
+         uut1/uut/even_out_reg[14]
+         uut1/uut/even_out_reg[13]
+         uut1/uut/odd_out_reg[12]
+         uut1/uut/odd_out_reg[11]
+         uut1/uut/odd_out_reg[10]
+         uut1/uut/odd_out_reg[9]
+         uut1/uut/odd_out_reg[8]
+         uut1/uut/even_out_reg[12]
+         uut1/uut/even_out_reg[11]
+         uut1/uut/even_out_reg[10]
+         uut1/uut/even_out_reg[9]
+         uut1/uut/even_out_reg[8]
+         uut1/uut/odd_out_reg[7]
+         uut1/uut/odd_out_reg[6]
+         uut1/uut/odd_out_reg[5]
+         uut1/uut/odd_out_reg[4]
+         uut1/uut/even_out_reg[7]
+         uut1/uut/even_out_reg[6]
+         uut1/uut/even_out_reg[5]
+         uut1/uut/even_out_reg[4]
+         uut1/uut/odd_out_reg[3]
+         uut1/uut/odd_out_reg[2]
+         uut1/uut/odd_out_reg[1]
+         uut1/uut/odd_out_reg[0]
+         uut1/uut/even_out_reg[3]
+         uut1/uut/even_out_reg[2]
+         uut1/uut/even_out_reg[1]
+         uut1/uut/even_out_reg[0]
+         uut1/uut1/SEL_reg
+         uut1/uut2/x_n3_reg[14]
+         uut1/uut2/x_n3_reg[13]
+         uut1/uut2/x_n3_reg[12]
+         uut1/uut2/x_n1_reg[15]
+         uut1/uut2/x_n3_reg[11]
+         uut1/uut2/x_n3_reg[10]
+         uut1/uut2/x_n3_reg[9]
+         uut1/uut2/x_n3_reg[8]
+         uut1/uut2/x_n3_reg[7]
+         uut1/uut2/x_n2_reg[15]
+         uut1/uut2/x_n2_reg[14]
+         uut1/uut2/x_n2_reg[13]
+         uut1/uut2/x_n2_reg[12]
+         uut1/uut2/x_n3_reg[4]
+         uut1/uut2/x_n3_reg[3]
+         uut1/uut2/x_n3_reg[2]
+         uut1/uut2/x_n3_reg[1]
+         uut1/uut2/x_n3_reg[0]
+         uut1/uut2/x_n3_reg[6]
+         uut1/uut2/x_n3_reg[5]
+         uut1/uut2/x_n2_reg[11]
+         uut1/uut2/x_n2_reg[10]
+         uut1/uut2/x_n2_reg[9]
+         uut1/uut2/x_n2_reg[8]
+         uut1/uut2/x_n1_reg[2]
+         uut1/uut2/x_n1_reg[1]
+         uut1/uut2/x_n1_reg[0]
+         uut1/uut2/x_n2_reg[7]
+         uut1/uut2/x_n2_reg[6]
+         uut1/uut2/x_n2_reg[5]
+         uut1/uut2/x_n2_reg[4]
+         uut1/uut2/x_n2_reg[1]
+         uut1/uut2/x_n2_reg[2]
+         uut1/uut2/x_n1_reg[14]
+         uut1/uut2/x_n1_reg[13]
+         uut1/uut2/x_n1_reg[12]
+         uut1/uut2/x_n3_reg[15]
+         uut1/uut2/x_n1_reg[11]
+         uut1/uut2/x_n1_reg[10]
+         uut1/uut2/x_n1_reg[9]
+         uut1/uut2/x_n1_reg[8]
+         uut1/uut2/x_n1_reg[7]
+         uut1/uut2/x_n1_reg[6]
+         uut1/uut2/x_n1_reg[5]
+         uut1/uut2/x_n1_reg[4]
+         uut1/uut2/x_n1_reg[3]
+         uut1/uut2/x_n2_reg[0]
+         uut1/uut2/x_n2_reg[3]
+         uut1/uut3/count_reg[1]
+         uut1/uut3/count_reg[0]
+         uut1/uut5/x_n3_reg[14]
+         uut1/uut5/x_n3_reg[13]
+         uut1/uut5/x_n3_reg[12]
+         uut1/uut5/x_n3_reg[11]
+         uut1/uut5/x_n3_reg[4]
+         uut1/uut5/x_n3_reg[10]
+         uut1/uut5/x_n3_reg[9]
+         uut1/uut5/x_n3_reg[8]
+         uut1/uut5/x_n3_reg[7]
+         uut1/uut5/x_n1_reg[15]
+         uut1/uut5/x_n2_reg[15]
+         uut1/uut5/x_n1_reg[14]
+         uut1/uut5/x_n1_reg[13]
+         uut1/uut5/x_n2_reg[14]
+         uut1/uut5/x_n2_reg[13]
+         uut1/uut5/x_n3_reg[3]
+         uut1/uut5/x_n3_reg[2]
+         uut1/uut5/x_n3_reg[1]
+         uut1/uut5/x_n3_reg[0]
+         uut1/uut5/x_n3_reg[6]
+         uut1/uut5/x_n3_reg[5]
+         uut1/uut5/x_n1_reg[12]
+         uut1/uut5/x_n1_reg[11]
+         uut1/uut5/x_n1_reg[10]
+         uut1/uut5/x_n1_reg[9]
+         uut1/uut5/x_n2_reg[12]
+         uut1/uut5/x_n2_reg[11]
+         uut1/uut5/x_n2_reg[10]
+         uut1/uut5/x_n2_reg[9]
+         uut1/uut5/x_n1_reg[8]
+         uut1/uut5/x_n1_reg[7]
+         uut1/uut5/x_n1_reg[6]
+         uut1/uut5/x_n1_reg[5]
+         uut1/uut5/x_n2_reg[8]
+         uut1/uut5/x_n2_reg[7]
+         uut1/uut5/x_n2_reg[6]
+         uut1/uut5/x_n2_reg[5]
+         uut1/uut5/x_n1_reg[2]
+         uut1/uut5/x_n1_reg[1]
+         uut1/uut5/x_n1_reg[0]
+         uut1/uut5/x_n2_reg[2]
+         uut1/uut5/x_n2_reg[0]
+         uut1/uut5/x_n1_reg[4]
+         uut1/uut5/x_n1_reg[3]
+         uut1/uut5/x_n2_reg[4]
+         uut1/uut5/x_n2_reg[3]
+         uut1/uut5/x_n3_reg[15]
+         uut1/uut5/x_n2_reg[1]
+         uut2/uut/d_reg[12][14]
+         uut2/uut/d_reg[12][13]
+         uut2/uut/d_reg[12][12]
+         uut2/uut/d_reg[13][14]
+         uut2/uut/d_reg[13][13]
+         uut2/uut/d_reg[2][14]
+         uut2/uut/d_reg[2][13]
+         uut2/uut/d_reg[3][14]
+         uut2/uut/d_reg[3][13]
+         uut2/uut/d_reg[12][15]
+         uut2/uut/d_reg[13][15]
+         uut2/uut/d_reg[14][15]
+         uut2/uut/d_reg[2][15]
+         uut2/uut/d_reg[3][15]
+         uut2/uut/d_reg[15][14]
+         uut2/uut/d_reg[15][13]
+         uut2/uut/d_reg[15][12]
+         uut2/uut/d_reg[15][11]
+         uut2/uut/d_reg[12][11]
+         uut2/uut/d_reg[12][10]
+         uut2/uut/d_reg[12][9]
+         uut2/uut/d_reg[12][8]
+         uut2/uut/d_reg[13][12]
+         uut2/uut/d_reg[13][11]
+         uut2/uut/d_reg[13][10]
+         uut2/uut/d_reg[13][9]
+         uut2/uut/d_reg[13][8]
+         uut2/uut/d_reg[14][14]
+         uut2/uut/d_reg[14][13]
+         uut2/uut/d_reg[14][12]
+         uut2/uut/d_reg[14][11]
+         uut2/uut/d_reg[14][10]
+         uut2/uut/d_reg[0][14]
+         uut2/uut/d_reg[0][13]
+         uut2/uut/d_reg[0][12]
+         uut2/uut/d_reg[0][11]
+         uut2/uut/d_reg[1][14]
+         uut2/uut/d_reg[1][13]
+         uut2/uut/d_reg[1][12]
+         uut2/uut/d_reg[1][11]
+         uut2/uut/d_reg[2][12]
+         uut2/uut/d_reg[2][11]
+         uut2/uut/d_reg[2][10]
+         uut2/uut/d_reg[2][9]
+         uut2/uut/d_reg[3][12]
+         uut2/uut/d_reg[3][11]
+         uut2/uut/d_reg[3][10]
+         uut2/uut/d_reg[3][9]
+         uut2/uut/d_reg[15][15]
+         uut2/uut/d_reg[0][15]
+         uut2/uut/d_reg[1][15]
+         uut2/uut/d_reg[15][10]
+         uut2/uut/d_reg[15][9]
+         uut2/uut/d_reg[15][8]
+         uut2/uut/d_reg[15][7]
+         uut2/uut/d_reg[9][14]
+         uut2/uut/d_reg[10][14]
+         uut2/uut/d_reg[10][13]
+         uut2/uut/d_reg[10][12]
+         uut2/uut/d_reg[11][14]
+         uut2/uut/d_reg[12][7]
+         uut2/uut/d_reg[12][6]
+         uut2/uut/d_reg[12][5]
+         uut2/uut/d_reg[12][4]
+         uut2/uut/d_reg[13][7]
+         uut2/uut/d_reg[13][6]
+         uut2/uut/d_reg[13][5]
+         uut2/uut/d_reg[13][4]
+         uut2/uut/d_reg[14][9]
+         uut2/uut/d_reg[14][8]
+         uut2/uut/d_reg[14][7]
+         uut2/uut/d_reg[14][6]
+         uut2/uut/d_reg[8][14]
+         uut2/uut/d_reg[8][13]
+         uut2/uut/d_reg[8][12]
+         uut2/uut/d_reg[0][10]
+         uut2/uut/d_reg[0][9]
+         uut2/uut/d_reg[0][8]
+         uut2/uut/d_reg[0][7]
+         uut2/uut/d_reg[1][10]
+         uut2/uut/d_reg[1][9]
+         uut2/uut/d_reg[1][8]
+         uut2/uut/d_reg[1][7]
+         uut2/uut/d_reg[1][6]
+         uut2/uut/d_reg[2][8]
+         uut2/uut/d_reg[2][7]
+         uut2/uut/d_reg[2][6]
+         uut2/uut/d_reg[2][5]
+         uut2/uut/d_reg[2][4]
+         uut2/uut/d_reg[3][8]
+         uut2/uut/d_reg[3][7]
+         uut2/uut/d_reg[3][6]
+         uut2/uut/d_reg[3][5]
+         uut2/uut/d_reg[3][4]
+         uut2/uut/d_reg[5][14]
+         uut2/uut/d_reg[5][13]
+         uut2/uut/d_reg[7][14]
+         uut2/uut/d_reg[7][13]
+         uut2/uut/d_reg[9][15]
+         uut2/uut/d_reg[10][15]
+         uut2/uut/d_reg[11][15]
+         uut2/uut/d_reg[8][15]
+         uut2/uut/d_reg[4][15]
+         uut2/uut/d_reg[5][15]
+         uut2/uut/d_reg[6][15]
+         uut2/uut/d_reg[7][15]
+         uut2/uut/d_reg[15][6]
+         uut2/uut/d_reg[15][5]
+         uut2/uut/d_reg[15][4]
+         uut2/uut/d_reg[15][3]
+         uut2/uut/d_reg[15][2]
+         uut2/uut/d_reg[9][13]
+         uut2/uut/d_reg[9][12]
+         uut2/uut/d_reg[9][11]
+         uut2/uut/d_reg[9][10]
+         uut2/uut/d_reg[10][11]
+         uut2/uut/d_reg[10][10]
+         uut2/uut/d_reg[10][9]
+         uut2/uut/d_reg[10][8]
+         uut2/uut/d_reg[11][13]
+         uut2/uut/d_reg[11][12]
+         uut2/uut/d_reg[11][11]
+         uut2/uut/d_reg[11][10]
+         uut2/uut/d_reg[12][3]
+         uut2/uut/d_reg[12][2]
+         uut2/uut/d_reg[12][1]
+         uut2/uut/d_reg[13][3]
+         uut2/uut/d_reg[13][2]
+         uut2/uut/d_reg[13][1]
+         uut2/uut/d_reg[14][5]
+         uut2/uut/d_reg[14][4]
+         uut2/uut/d_reg[14][3]
+         uut2/uut/d_reg[14][2]
+         uut2/uut/d_reg[8][11]
+         uut2/uut/d_reg[8][10]
+         uut2/uut/d_reg[8][9]
+         uut2/uut/d_reg[8][8]
+         uut2/uut/d_reg[0][6]
+         uut2/uut/d_reg[0][5]
+         uut2/uut/d_reg[0][4]
+         uut2/uut/d_reg[0][3]
+         uut2/uut/d_reg[1][5]
+         uut2/uut/d_reg[1][4]
+         uut2/uut/d_reg[1][3]
+         uut2/uut/d_reg[1][2]
+         uut2/uut/d_reg[2][3]
+         uut2/uut/d_reg[2][2]
+         uut2/uut/d_reg[2][1]
+         uut2/uut/d_reg[3][3]
+         uut2/uut/d_reg[3][2]
+         uut2/uut/d_reg[3][1]
+         uut2/uut/d_reg[4][14]
+         uut2/uut/d_reg[4][13]
+         uut2/uut/d_reg[4][12]
+         uut2/uut/d_reg[4][11]
+         uut2/uut/d_reg[4][10]
+         uut2/uut/d_reg[5][12]
+         uut2/uut/d_reg[5][11]
+         uut2/uut/d_reg[5][10]
+         uut2/uut/d_reg[5][9]
+         uut2/uut/d_reg[6][14]
+         uut2/uut/d_reg[6][13]
+         uut2/uut/d_reg[6][12]
+         uut2/uut/d_reg[6][11]
+         uut2/uut/d_reg[6][10]
+         uut2/uut/d_reg[7][12]
+         uut2/uut/d_reg[7][11]
+         uut2/uut/d_reg[7][10]
+         uut2/uut/d_reg[7][9]
+         uut2/uut/d_reg[12][0]
+         uut2/uut/d_reg[13][0]
+         uut2/uut/d_reg[2][0]
+         uut2/uut/d_reg[3][0]
+         uut2/uut/d_reg[15][1]
+         uut2/uut/d_reg[9][9]
+         uut2/uut/d_reg[9][8]
+         uut2/uut/d_reg[9][7]
+         uut2/uut/d_reg[9][6]
+         uut2/uut/d_reg[10][7]
+         uut2/uut/d_reg[10][6]
+         uut2/uut/d_reg[10][5]
+         uut2/uut/d_reg[10][4]
+         uut2/uut/d_reg[11][9]
+         uut2/uut/d_reg[11][8]
+         uut2/uut/d_reg[11][7]
+         uut2/uut/d_reg[11][6]
+         uut2/uut/d_reg[14][1]
+         uut2/uut/d_reg[8][7]
+         uut2/uut/d_reg[8][6]
+         uut2/uut/d_reg[8][5]
+         uut2/uut/d_reg[8][4]
+         uut2/uut/d_reg[0][2]
+         uut2/uut/d_reg[0][1]
+         uut2/uut/d_reg[1][1]
+         uut2/uut/d_reg[4][9]
+         uut2/uut/d_reg[4][8]
+         uut2/uut/d_reg[4][7]
+         uut2/uut/d_reg[4][6]
+         uut2/uut/d_reg[5][8]
+         uut2/uut/d_reg[5][7]
+         uut2/uut/d_reg[5][6]
+         uut2/uut/d_reg[5][5]
+         uut2/uut/d_reg[5][4]
+         uut2/uut/d_reg[6][9]
+         uut2/uut/d_reg[6][8]
+         uut2/uut/d_reg[6][7]
+         uut2/uut/d_reg[6][6]
+         uut2/uut/d_reg[7][8]
+         uut2/uut/d_reg[7][7]
+         uut2/uut/d_reg[7][6]
+         uut2/uut/d_reg[7][5]
+         uut2/uut/d_reg[7][4]
+         uut2/uut/d_reg[15][0]
+         uut2/uut/d_reg[14][0]
+         uut2/uut/d_reg[0][0]
+         uut2/uut/d_reg[1][0]
+         uut2/uut/d_reg[9][5]
+         uut2/uut/d_reg[9][4]
+         uut2/uut/d_reg[9][3]
+         uut2/uut/d_reg[9][2]
+         uut2/uut/d_reg[9][1]
+         uut2/uut/d_reg[10][3]
+         uut2/uut/d_reg[10][2]
+         uut2/uut/d_reg[10][1]
+         uut2/uut/d_reg[11][5]
+         uut2/uut/d_reg[11][4]
+         uut2/uut/d_reg[11][3]
+         uut2/uut/d_reg[11][2]
+         uut2/uut/d_reg[8][3]
+         uut2/uut/d_reg[8][2]
+         uut2/uut/d_reg[8][1]
+         uut2/uut/d_reg[4][5]
+         uut2/uut/d_reg[4][4]
+         uut2/uut/d_reg[4][3]
+         uut2/uut/d_reg[4][2]
+         uut2/uut/d_reg[5][3]
+         uut2/uut/d_reg[5][2]
+         uut2/uut/d_reg[5][1]
+         uut2/uut/d_reg[6][5]
+         uut2/uut/d_reg[6][4]
+         uut2/uut/d_reg[6][3]
+         uut2/uut/d_reg[6][2]
+         uut2/uut/d_reg[7][3]
+         uut2/uut/d_reg[7][2]
+         uut2/uut/d_reg[7][1]
+         uut2/uut/d_reg[8][0]
+         uut2/uut/d_reg[9][0]
+         uut2/uut/d_reg[10][0]
+         uut2/uut/d_reg[5][0]
+         uut2/uut/d_reg[7][0]
+         uut2/uut/d_reg[11][1]
+         uut2/uut/d_reg[4][1]
+         uut2/uut/d_reg[6][1]
+         uut2/uut/d_reg[11][0]
+         uut2/uut/d_reg[4][0]
+         uut2/uut/d_reg[6][0]
+         uut2/uut/odd_out_reg[15]
+         uut2/uut/odd_out_reg[14]
+         uut2/uut/odd_out_reg[13]
+         uut2/uut/odd_out_reg[12]
+         uut2/uut/even_out_reg[15]
+         uut2/uut/even_out_reg[14]
+         uut2/uut/even_out_reg[13]
+         uut2/uut/even_out_reg[12]
+         uut2/uut/odd_out_reg[11]
+         uut2/uut/odd_out_reg[10]
+         uut2/uut/odd_out_reg[9]
+         uut2/uut/odd_out_reg[8]
+         uut2/uut/even_out_reg[11]
+         uut2/uut/even_out_reg[10]
+         uut2/uut/even_out_reg[9]
+         uut2/uut/even_out_reg[8]
+         uut2/uut/odd_out_reg[7]
+         uut2/uut/odd_out_reg[6]
+         uut2/uut/odd_out_reg[5]
+         uut2/uut/odd_out_reg[4]
+         uut2/uut/even_out_reg[7]
+         uut2/uut/even_out_reg[6]
+         uut2/uut/even_out_reg[5]
+         uut2/uut/even_out_reg[4]
+         uut2/uut/odd_out_reg[3]
+         uut2/uut/odd_out_reg[2]
+         uut2/uut/odd_out_reg[1]
+         uut2/uut/odd_out_reg[0]
+         uut2/uut/even_out_reg[3]
+         uut2/uut/even_out_reg[2]
+         uut2/uut/even_out_reg[1]
+         uut2/uut/even_out_reg[0]
+         uut2/uut1/SEL_reg
+         uut2/uut2/x_n3_reg[15]
+         uut2/uut2/x_n1_reg[15]
+         uut2/uut2/x_n2_reg[15]
+         uut2/uut2/x_n3_reg[14]
+         uut2/uut2/x_n3_reg[13]
+         uut2/uut2/x_n3_reg[12]
+         uut2/uut2/x_n3_reg[11]
+         uut2/uut2/x_n2_reg[12]
+         uut2/uut2/x_n2_reg[11]
+         uut2/uut2/x_n3_reg[10]
+         uut2/uut2/x_n3_reg[9]
+         uut2/uut2/x_n3_reg[8]
+         uut2/uut2/x_n3_reg[7]
+         uut2/uut2/x_n2_reg[7]
+         uut2/uut2/x_n1_reg[2]
+         uut2/uut2/x_n1_reg[1]
+         uut2/uut2/x_n1_reg[0]
+         uut2/uut2/x_n2_reg[2]
+         uut2/uut2/x_n2_reg[0]
+         uut2/uut2/x_n3_reg[6]
+         uut2/uut2/x_n3_reg[5]
+         uut2/uut2/x_n3_reg[4]
+         uut2/uut2/x_n3_reg[3]
+         uut2/uut2/x_n3_reg[2]
+         uut2/uut2/x_n2_reg[3]
+         uut2/uut2/x_n3_reg[0]
+         uut2/uut2/x_n3_reg[1]
+         uut2/uut2/x_n1_reg[14]
+         uut2/uut2/x_n1_reg[13]
+         uut2/uut2/x_n1_reg[12]
+         uut2/uut2/x_n2_reg[14]
+         uut2/uut2/x_n2_reg[13]
+         uut2/uut2/x_n1_reg[11]
+         uut2/uut2/x_n1_reg[10]
+         uut2/uut2/x_n1_reg[9]
+         uut2/uut2/x_n1_reg[8]
+         uut2/uut2/x_n2_reg[10]
+         uut2/uut2/x_n2_reg[9]
+         uut2/uut2/x_n2_reg[8]
+         uut2/uut2/x_n1_reg[7]
+         uut2/uut2/x_n1_reg[6]
+         uut2/uut2/x_n1_reg[5]
+         uut2/uut2/x_n1_reg[4]
+         uut2/uut2/x_n2_reg[6]
+         uut2/uut2/x_n2_reg[5]
+         uut2/uut2/x_n2_reg[4]
+         uut2/uut2/x_n1_reg[3]
+         uut2/uut2/x_n2_reg[1]
+         uut2/uut5/x_n3_reg[14]
+         uut2/uut5/x_n3_reg[13]
+         uut2/uut5/x_n3_reg[12]
+         uut2/uut5/x_n3_reg[11]
+         uut2/uut5/x_n3_reg[4]
+         uut2/uut5/x_n3_reg[10]
+         uut2/uut5/x_n3_reg[9]
+         uut2/uut5/x_n3_reg[8]
+         uut2/uut5/x_n3_reg[7]
+         uut2/uut5/x_n1_reg[15]
+         uut2/uut5/x_n2_reg[15]
+         uut2/uut5/x_n1_reg[14]
+         uut2/uut5/x_n1_reg[13]
+         uut2/uut5/x_n2_reg[14]
+         uut2/uut5/x_n2_reg[13]
+         uut2/uut5/x_n3_reg[3]
+         uut2/uut5/x_n3_reg[2]
+         uut2/uut5/x_n3_reg[1]
+         uut2/uut5/x_n3_reg[0]
+         uut2/uut5/x_n3_reg[6]
+         uut2/uut5/x_n3_reg[5]
+         uut2/uut5/x_n1_reg[12]
+         uut2/uut5/x_n1_reg[11]
+         uut2/uut5/x_n1_reg[10]
+         uut2/uut5/x_n1_reg[9]
+         uut2/uut5/x_n2_reg[12]
+         uut2/uut5/x_n2_reg[11]
+         uut2/uut5/x_n2_reg[10]
+         uut2/uut5/x_n2_reg[9]
+         uut2/uut5/x_n1_reg[8]
+         uut2/uut5/x_n1_reg[7]
+         uut2/uut5/x_n1_reg[6]
+         uut2/uut5/x_n1_reg[5]
+         uut2/uut5/x_n2_reg[8]
+         uut2/uut5/x_n2_reg[7]
+         uut2/uut5/x_n2_reg[6]
+         uut2/uut5/x_n2_reg[5]
+         uut2/uut5/x_n1_reg[2]
+         uut2/uut5/x_n1_reg[1]
+         uut2/uut5/x_n1_reg[0]
+         uut2/uut5/x_n2_reg[2]
+         uut2/uut5/x_n2_reg[0]
+         uut2/uut5/x_n1_reg[4]
+         uut2/uut5/x_n1_reg[3]
+         uut2/uut5/x_n2_reg[4]
+         uut2/uut5/x_n2_reg[3]
+         uut2/uut5/x_n3_reg[15]
+         uut2/uut5/x_n2_reg[1]
+         uut2/uut6/count_reg[1]
+         uut2/uut6/count_reg[0]
+         uut2/uut3/count_reg[1]
+         uut2/uut3/count_reg[0]
+         uut1/uut6/count_reg[1]
+         uut1/uut6/count_reg[0]
+
+....Inferring feed-through connections....
+Information: Test design rule checking completed. (TEST-123)
+  Running test coverage estimation...
+ 48732 faults were added to fault list.
+ 0           35740   4370        0/0/10    90.76%      0.07
+ 0            2094   2271        5/0/23    95.15%      0.09
+ 0             923   1343       10/0/35    97.08%      0.10
+ 0             346    984       21/0/48    97.83%      0.12
+ 0             367    594       43/0/67    98.65%      0.14
+ 0             129    453       52/0/83    98.94%      0.17
+ 0             189    229       82/0/99    99.41%      0.20
+ 0              74    141      92/0/118    99.59%      0.23
+ 0              13    117     100/0/133    99.64%      0.24
+ 
+            Pattern Summary Report
+ -----------------------------------------------
+ #internal patterns                           0
+ -----------------------------------------------
+ 
+
+     Uncollapsed Stuck Fault Summary Report
+ -----------------------------------------------
+ fault class                     code   #faults
+ ------------------------------  ----  ---------
+ Detected                         DT      47595
+ Possibly detected                PT          0
+ Undetectable                     UD        967
+ ATPG untestable                  AU         53
+ Not detected                     ND        117
+ -----------------------------------------------
+ total faults                             48732
+ test coverage                            99.64%
+ -----------------------------------------------
+  Information: The test coverage above may be inferior
+               than the real test coverage with customized
+               protocol and test simulation library.
+1
+set_svf   -off
+1
+####################### reporting & Writing Files ##########################
+change_name -hier -rule verilog
+Warning: The specified replacement character (_) is conflicting with the specified allowed or restricted character.   (UCN-4)
+1
+write_file -format verilog -hierarchy -output MIMO_dft.v
+Writing verilog file '/home/IC/chain_test/dft/MIMO_dft.v'.
+1
+write_file -format verilog -hierarchy -output MIMO_dft.ddc
+Writing verilog file '/home/IC/chain_test/dft/MIMO_dft.ddc'.
+1
+write_sdf           MIMO_dft.sdf
+Information: Annotated 'cell' delays are assumed to include load delay. (UID-282)
+Information: Writing timing information to file '/home/IC/chain_test/dft/MIMO_dft.sdf'. (WT-3)
+Information: Updating design information... (UID-85)
+1
+write_sdc  -nosplit MIMO_dft.sdc
+1
+####################### reporting ##########################################
+report_area -hierarchy > area_dft.rpt
+report_power -hierarchy > power_dft.rpt
+report_timing -delay_type min > hold_dft.rpt
+report_timing -delay_type max > setup_dft.rpt
+report_clock -attributes > clocks_dft.rpt
+report_constraint -all_violators > constraints_dft.rpt
+dc_shell> 
