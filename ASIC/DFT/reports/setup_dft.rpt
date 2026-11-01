@@ -1,0 +1,138 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : MIMO
+Version: K-2015.06
+Date   : Mon Jun 29 05:28:07 2026
+****************************************
+
+Operating Conditions: scmetro_tsmc_cl013g_rvt_ss_1p08v_125c   Library: scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
+Wire Load Model Mode: top
+
+  Startpoint: uut2/uut1/SEL_reg
+              (rising edge-triggered flip-flop clocked by DFT_CLK)
+  Endpoint: uut4/acc2_reg_17_
+            (rising edge-triggered flip-flop clocked by DFT_CLK)
+  Path Group: DFT_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock DFT_CLK (rise edge)                               0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  uut2/uut1/SEL_reg/CK (SDFFRX1M)                         0.00       0.00 r
+  uut2/uut1/SEL_reg/Q (SDFFRX1M)                          0.40       0.40 r
+  uut2/uut1/SEL (counter_test_1)                          0.00       0.40 r
+  uut2/U19/Y (BUFX2M)                                     0.22       0.62 r
+  uut2/U16/Y (INVX2M)                                     0.14       0.76 f
+  uut2/U15/Y (AO22X1M)                                    0.59       1.35 f
+  uut2/uut2/in_data[1] (up4_filter_test_2)                0.00       1.35 f
+  uut2/uut2/U52/CO (ADDFX1M)                              0.55       1.90 f
+  uut2/uut2/U104/CO (ADDFX2M)                             0.33       2.23 f
+  uut2/uut2/U105/CO (ADDFX2M)                             0.33       2.56 f
+  uut2/uut2/U106/CO (ADDFX2M)                             0.33       2.89 f
+  uut2/uut2/U107/CO (ADDFX2M)                             0.33       3.21 f
+  uut2/uut2/U108/CO (ADDFX2M)                             0.33       3.54 f
+  uut2/uut2/U109/CO (ADDFX2M)                             0.33       3.87 f
+  uut2/uut2/U110/CO (ADDFX2M)                             0.33       4.20 f
+  uut2/uut2/U111/CO (ADDFX2M)                             0.33       4.53 f
+  uut2/uut2/U112/CO (ADDFX2M)                             0.33       4.86 f
+  uut2/uut2/U113/CO (ADDFX2M)                             0.33       5.18 f
+  uut2/uut2/U114/CO (ADDFX2M)                             0.33       5.51 f
+  uut2/uut2/U115/CO (ADDFX2M)                             0.33       5.84 f
+  uut2/uut2/U116/CO (ADDFX2M)                             0.35       6.19 f
+  uut2/uut2/U250/Y (AOI222X1M)                            0.38       6.57 r
+  uut2/uut2/U51/Y (XOR3XLM)                               0.47       7.04 f
+  uut2/uut2/add_0_root_sub_0_root_add_30_3/B[16] (up4_filter_2_DW01_add_5)
+                                                          0.00       7.04 f
+  uut2/uut2/add_0_root_sub_0_root_add_30_3/U1_16/CO (ADDFXLM)
+                                                          0.58       7.62 f
+  uut2/uut2/add_0_root_sub_0_root_add_30_3/U1_17/CO (ADDFX2M)
+                                                          0.33       7.95 f
+  uut2/uut2/add_0_root_sub_0_root_add_30_3/U1_18/CO (ADDFX2M)
+                                                          0.33       8.28 f
+  uut2/uut2/add_0_root_sub_0_root_add_30_3/U1_19/CO (ADDFX2M)
+                                                          0.33       8.61 f
+  uut2/uut2/add_0_root_sub_0_root_add_30_3/U1_20/CO (ADDFX2M)
+                                                          0.33       8.93 f
+  uut2/uut2/add_0_root_sub_0_root_add_30_3/U1_21/Y (XOR3XLM)
+                                                          0.25       9.19 f
+  uut2/uut2/add_0_root_sub_0_root_add_30_3/SUM[21] (up4_filter_2_DW01_add_5)
+                                                          0.00       9.19 f
+  uut2/uut2/b0[15] (up4_filter_test_2)                    0.00       9.19 f
+  uut2/uut4/I0[15] (mux4to1_2)                            0.00       9.19 f
+  uut2/uut4/U21/Y (AOI22X1M)                              0.22       9.41 r
+  uut2/uut4/U1/Y (NAND2X2M)                               0.11       9.52 f
+  uut2/uut4/Y[15] (mux4to1_2)                             0.00       9.52 f
+  uut2/uut5/in_data[15] (up4_filter_test_3)               0.00       9.52 f
+  uut2/uut5/U64/Y (BUFX2M)                                0.20       9.72 f
+  uut2/uut5/U59/S (ADDFX2M)                               0.54      10.26 f
+  uut2/uut5/add_0_root_add_0_root_add_38_6/B[16] (up4_filter_1_DW01_add_12)
+                                                          0.00      10.26 f
+  uut2/uut5/add_0_root_add_0_root_add_38_6/U1_16/S (ADDFXLM)
+                                                          0.51      10.77 f
+  uut2/uut5/add_0_root_add_0_root_add_38_6/SUM[16] (up4_filter_1_DW01_add_12)
+                                                          0.00      10.77 f
+  uut2/uut5/b2[10] (up4_filter_test_3)                    0.00      10.77 f
+  uut2/uut7/I2[10] (mux4to1_1)                            0.00      10.77 f
+  uut2/uut7/U18/Y (AOI22X1M)                              0.21      10.99 r
+  uut2/uut7/U16/Y (NAND2X2M)                              0.09      11.07 f
+  uut2/uut7/Y[10] (mux4to1_1)                             0.00      11.07 f
+  uut2/out[10] (FIR_test_1)                               0.00      11.07 f
+  uut4/input_data[10] (segma_test_1)                      0.00      11.07 f
+  uut4/add_0_root_sub_0_root_sub_16/B[10] (segma_1_DW01_add_0)
+                                                          0.00      11.07 f
+  uut4/add_0_root_sub_0_root_sub_16/U1_10/CO (ADDFXLM)
+                                                          0.48      11.56 f
+  uut4/add_0_root_sub_0_root_sub_16/U1_11/CO (ADDFX2M)
+                                                          0.33      11.89 f
+  uut4/add_0_root_sub_0_root_sub_16/U1_12/CO (ADDFX2M)
+                                                          0.33      12.22 f
+  uut4/add_0_root_sub_0_root_sub_16/U1_13/CO (ADDFX2M)
+                                                          0.33      12.55 f
+  uut4/add_0_root_sub_0_root_sub_16/U1_14/CO (ADDFX2M)
+                                                          0.33      12.88 f
+  uut4/add_0_root_sub_0_root_sub_16/U1_15/CO (ADDFX2M)
+                                                          0.33      13.20 f
+  uut4/add_0_root_sub_0_root_sub_16/U1_16/CO (ADDFXLM)
+                                                          0.33      13.53 f
+  uut4/add_0_root_sub_0_root_sub_16/U1_17/Y (XOR3XLM)     0.29      13.82 r
+  uut4/add_0_root_sub_0_root_sub_16/SUM[17] (segma_1_DW01_add_0)
+                                                          0.00      13.82 r
+  uut4/U42/Y (INVX2M)                                     0.20      14.01 f
+  uut4/U43/CO (ADDFX2M)                                   0.54      14.55 f
+  uut4/U44/CO (ADDFX2M)                                   0.33      14.88 f
+  uut4/U45/CO (ADDFX2M)                                   0.33      15.21 f
+  uut4/U46/CO (ADDFX2M)                                   0.33      15.54 f
+  uut4/U47/CO (ADDFX2M)                                   0.33      15.87 f
+  uut4/U48/CO (ADDFX2M)                                   0.33      16.19 f
+  uut4/U49/CO (ADDFX2M)                                   0.33      16.52 f
+  uut4/U50/CO (ADDFX2M)                                   0.33      16.85 f
+  uut4/U51/CO (ADDFX2M)                                   0.33      17.18 f
+  uut4/U52/CO (ADDFX2M)                                   0.33      17.51 f
+  uut4/U53/CO (ADDFX2M)                                   0.33      17.84 f
+  uut4/U54/CO (ADDFX2M)                                   0.33      18.16 f
+  uut4/U55/CO (ADDFX2M)                                   0.33      18.49 f
+  uut4/U56/CO (ADDFX2M)                                   0.33      18.82 f
+  uut4/U57/CO (ADDFX2M)                                   0.33      19.15 f
+  uut4/U58/CO (ADDFX2M)                                   0.31      19.45 f
+  uut4/acc2_reg_17_/D (SDFFRQX1M)                         0.00      19.45 f
+  data arrival time                                                 19.45
+
+  clock DFT_CLK (rise edge)                              20.00      20.00
+  clock network delay (ideal)                             0.00      20.00
+  clock uncertainty                                      -0.02      19.98
+  uut4/acc2_reg_17_/CK (SDFFRQX1M)                        0.00      19.98 r
+  library setup time                                     -0.41      19.57
+  data required time                                                19.57
+  --------------------------------------------------------------------------
+  data required time                                                19.57
+  data arrival time                                                -19.45
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.12
+
+
+1

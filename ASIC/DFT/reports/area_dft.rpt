@@ -1,0 +1,233 @@
+ 
+****************************************
+Report : area
+Design : MIMO
+Version: K-2015.06
+Date   : Mon Jun 29 05:28:06 2026
+****************************************
+
+Library(s) Used:
+
+    scmetro_tsmc_cl013g_rvt_ss_1p08v_125c (File: /home/IC/chain_test/std_cells/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db)
+
+Number of ports:                         7377
+Number of nets:                         14743
+Number of cells:                         6276
+Number of combinational cells:           5034
+Number of sequential cells:              1107
+Number of macros/black boxes:               0
+Number of buf/inv:                        796
+Number of references:                      22
+
+Combinational area:              80713.383610
+Buf/Inv area:                     3270.049348
+Noncombinational area:           29715.206280
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                110428.589890
+Total area:                 undefined
+
+Hierarchical area distribution
+------------------------------
+
+                                  Global cell area             Local cell area
+                                  --------------------  ------------------------------ 
+Hierarchical cell                 Absolute     Percent  Combi-      Noncombi-   Black-
+                                  Total        Total    national    national    boxes   Design
+--------------------------------  -----------  -------  ----------  ----------  ------  ------------------------
+MIMO                              110428.5899    100.0     83.5457      0.0000  0.0000  MIMO
+U0_clk_mux                            11.7670      0.0     11.7670      0.0000  0.0000  mux2X1_1
+U1_clk_mux                            11.7670      0.0     11.7670      0.0000  0.0000  mux2X1_6
+U2_clk_mux                            11.7670      0.0     11.7670      0.0000  0.0000  mux2X1_5
+U3_clk_mux                            12.9437      0.0     12.9437      0.0000  0.0000  mux2X1_4
+U4_clk_mux                            11.7670      0.0     11.7670      0.0000  0.0000  mux2X1_3
+U5_clk_mux                            16.4738      0.0     16.4738      0.0000  0.0000  mux2X1_2
+U6_clk_mux                            11.7670      0.0     11.7670      0.0000  0.0000  mux2X1_0
+gen128                               829.5735      0.8    442.4392    295.3517  0.0000  ClkDiv_test_2
+gen128/add_52                         91.7826      0.1     91.7826      0.0000  0.0000  ClkDiv_4_DW01_inc_0
+gen16                                829.5735      0.8    442.4392    295.3517  0.0000  ClkDiv_test_0
+gen16/add_52                          91.7826      0.1     91.7826      0.0000  0.0000  ClkDiv_3_DW01_inc_0
+gen4                                 829.5735      0.8    442.4392    295.3517  0.0000  ClkDiv_test_4
+gen4/add_52                           91.7826      0.1     91.7826      0.0000  0.0000  ClkDiv_0_DW01_inc_0
+gen64                                829.5735      0.8    442.4392    295.3517  0.0000  ClkDiv_test_1
+gen64/add_52                          91.7826      0.1     91.7826      0.0000  0.0000  ClkDiv_2_DW01_inc_0
+gen_4                                829.5735      0.8    442.4392    295.3517  0.0000  ClkDiv_test_3
+gen_4/add_52                          91.7826      0.1     91.7826      0.0000  0.0000  ClkDiv_1_DW01_inc_0
+uut1                               50119.1838     45.4    165.9147      0.0000  0.0000  FIR_test_0
+uut1/uut                           26409.8553     23.9    249.4604   9488.9092  0.0000  hfb_1_test_0
+uut1/uut/add_0_root_add_2_root_add_40_2_I8
+                                     584.8199      0.5    584.8199      0.0000  0.0000  hfb_1_0_DW01_add_3
+uut1/uut/add_1_root_add_2_root_add_40_2_I8
+                                     742.4977      0.7    742.4977      0.0000  0.0000  hfb_1_0_DW01_add_4
+uut1/uut/add_2_root_add_2_root_add_40_2_I8
+                                     716.6103      0.6    716.6103      0.0000  0.0000  hfb_1_0_DW01_add_5
+uut1/uut/add_40                      497.7441      0.5    497.7441      0.0000  0.0000  hfb_1_0_DW01_add_13
+uut1/uut/add_40_I2                   497.7441      0.5    497.7441      0.0000  0.0000  hfb_1_0_DW01_add_2
+uut1/uut/add_40_I3                   497.7441      0.5    497.7441      0.0000  0.0000  hfb_1_0_DW01_add_1
+uut1/uut/add_40_I4                   497.7441      0.5    497.7441      0.0000  0.0000  hfb_1_0_DW01_add_0
+uut1/uut/add_40_I5                   497.7441      0.5    497.7441      0.0000  0.0000  hfb_1_0_DW01_add_14
+uut1/uut/add_40_I6                   497.7441      0.5    497.7441      0.0000  0.0000  hfb_1_0_DW01_add_15
+uut1/uut/add_40_I7                   497.7441      0.5    497.7441      0.0000  0.0000  hfb_1_0_DW01_add_16
+uut1/uut/add_40_I8                   497.7441      0.5    497.7441      0.0000  0.0000  hfb_1_0_DW01_add_17
+uut1/uut/add_5_root_add_40_2_I8      571.8762      0.5    571.8762      0.0000  0.0000  hfb_1_0_DW01_add_7
+uut1/uut/add_7_root_add_40_2_I8      689.5462      0.6    689.5462      0.0000  0.0000  hfb_1_0_DW01_add_6
+uut1/uut/add_8_root_add_40_2_I8      541.2820      0.5    541.2820      0.0000  0.0000  hfb_1_0_DW01_add_8
+uut1/uut/mult_40_I5                 1270.8360      1.2    649.5384      0.0000  0.0000  hfb_1_0_DW02_mult_0
+uut1/uut/mult_40_I5/FS_1             621.2976      0.6    621.2976      0.0000  0.0000  hfb_1_0_DW01_add_9
+uut1/uut/mult_40_I6                 1872.1297      1.7   1340.2613      0.0000  0.0000  hfb_1_0_DW02_mult_1
+uut1/uut/mult_40_I6/FS_1             531.8684      0.5    531.8684      0.0000  0.0000  hfb_1_0_DW01_add_10
+uut1/uut/mult_40_I7                 2766.4217      2.5   2188.6620      0.0000  0.0000  hfb_1_0_DW02_mult_2
+uut1/uut/mult_40_I7/FS_1             577.7597      0.5    577.7597      0.0000  0.0000  hfb_1_0_DW01_add_11
+uut1/uut/mult_40_I8                 2129.8270      1.9   1593.2518      0.0000  0.0000  hfb_1_0_DW02_mult_3
+uut1/uut/mult_40_I8/FS_1             536.5752      0.5    536.5752      0.0000  0.0000  hfb_1_0_DW01_add_12
+uut1/uut/sub_3_root_add_2_root_add_40_2_I8
+                                     803.6861      0.7    803.6861      0.0000  0.0000  hfb_1_0_DW01_sub_0
+uut1/uut1                             34.1243      0.0      0.0000     34.1243  0.0000  counter_test_0
+uut1/uut2                          11459.8814     10.4   2645.2216   1581.4849  0.0000  up4_filter_test_0
+uut1/uut2/add_0_root_add_0_root_add_34_4
+                                     524.8082      0.5    524.8082      0.0000  0.0000  up4_filter_0_DW01_add_4
+uut1/uut2/add_0_root_add_0_root_add_38_6
+                                     537.7519      0.5    537.7519      0.0000  0.0000  up4_filter_0_DW01_add_8
+uut1/uut2/add_0_root_add_0_root_add_42_4
+                                     524.8082      0.5    524.8082      0.0000  0.0000  up4_filter_0_DW01_add_13
+uut1/uut2/add_0_root_sub_0_root_add_30_3
+                                     545.9888      0.5    545.9888      0.0000  0.0000  up4_filter_0_DW01_add_1
+uut1/uut2/add_1_root_add_0_root_add_34_4
+                                     567.1694      0.5    567.1694      0.0000  0.0000  up4_filter_0_DW01_add_5
+uut1/uut2/add_1_root_add_0_root_add_38_6
+                                     594.2335      0.5    594.2335      0.0000  0.0000  up4_filter_0_DW01_add_9
+uut1/uut2/add_1_root_add_0_root_add_42_4
+                                     567.1694      0.5    567.1694      0.0000  0.0000  up4_filter_0_DW01_add_14
+uut1/uut2/add_1_root_sub_0_root_add_30_3
+                                     654.2452      0.6    654.2452      0.0000  0.0000  up4_filter_0_DW01_add_2
+uut1/uut2/add_2_root_add_0_root_add_34_4
+                                     515.3946      0.5    515.3946      0.0000  0.0000  up4_filter_0_DW01_add_6
+uut1/uut2/add_2_root_add_0_root_add_38_6
+                                     571.8762      0.5    571.8762      0.0000  0.0000  up4_filter_0_DW01_add_10
+uut1/uut2/add_3_root_add_0_root_add_34_4
+                                     537.7519      0.5    537.7519      0.0000  0.0000  up4_filter_0_DW01_add_7
+uut1/uut2/add_3_root_add_0_root_add_38_6
+                                     567.1694      0.5    567.1694      0.0000  0.0000  up4_filter_0_DW01_add_11
+uut1/uut2/add_4_root_sub_0_root_add_30_3
+                                     524.8082      0.5    524.8082      0.0000  0.0000  up4_filter_0_DW01_add_3
+uut1/uut3                             81.1923      0.1     15.2971     65.8952  0.0000  counter2bit_test_0
+uut1/uut4                            335.3595      0.3    335.3595      0.0000  0.0000  mux4to1_0
+uut1/uut5                          11216.3045     10.2   2877.0315   1581.4849  0.0000  up4_filter_test_1
+uut1/uut5/add_0_root_add_0_root_add_34_4
+                                     520.1014      0.5    520.1014      0.0000  0.0000  up4_filter_3_DW01_add_1
+uut1/uut5/add_0_root_add_0_root_add_38_6
+                                     537.7519      0.5    537.7519      0.0000  0.0000  up4_filter_3_DW01_add_12
+uut1/uut5/add_0_root_add_0_root_add_42_4
+                                     524.8082      0.5    524.8082      0.0000  0.0000  up4_filter_3_DW01_add_5
+uut1/uut5/add_0_root_sub_0_root_add_30_3
+                                     545.9888      0.5    545.9888      0.0000  0.0000  up4_filter_3_DW01_add_8
+uut1/uut5/add_1_root_add_0_root_add_34_4
+                                     567.1694      0.5    567.1694      0.0000  0.0000  up4_filter_3_DW01_add_2
+uut1/uut5/add_1_root_add_0_root_add_38_6
+                                     594.2335      0.5    594.2335      0.0000  0.0000  up4_filter_3_DW01_add_13
+uut1/uut5/add_1_root_add_0_root_add_42_4
+                                     567.1694      0.5    567.1694      0.0000  0.0000  up4_filter_3_DW01_add_6
+uut1/uut5/add_2_root_add_0_root_add_38_6
+                                     571.8762      0.5    571.8762      0.0000  0.0000  up4_filter_3_DW01_add_14
+uut1/uut5/add_2_root_sub_0_root_add_30_3
+                                     524.8082      0.5    524.8082      0.0000  0.0000  up4_filter_3_DW01_add_10
+uut1/uut5/add_3_root_add_0_root_add_38_6
+                                     567.1694      0.5    567.1694      0.0000  0.0000  up4_filter_3_DW01_add_15
+uut1/uut5/add_4_root_sub_0_root_add_30_3
+                                     521.2781      0.5    521.2781      0.0000  0.0000  up4_filter_3_DW01_add_11
+uut1/uut5/sub_1_root_sub_0_root_add_30_3
+                                     715.4336      0.6    715.4336      0.0000  0.0000  up4_filter_3_DW01_sub_0
+uut1/uut6                             81.1923      0.1     15.2971     65.8952  0.0000  counter2bit_test_1
+uut1/uut7                            335.3595      0.3    335.3595      0.0000  0.0000  mux4to1_3
+uut2                               50030.9313     45.3    168.2681      0.0000  0.0000  FIR_test_1
+uut2/uut                           26413.3854     23.9    249.4604   9488.9092  0.0000  hfb_1_test_1
+uut2/uut/add_0_root_add_2_root_add_40_2_I8
+                                     584.8199      0.5    584.8199      0.0000  0.0000  hfb_1_1_DW01_add_3
+uut2/uut/add_1_root_add_2_root_add_40_2_I8
+                                     742.4977      0.7    742.4977      0.0000  0.0000  hfb_1_1_DW01_add_4
+uut2/uut/add_2_root_add_2_root_add_40_2_I8
+                                     716.6103      0.6    716.6103      0.0000  0.0000  hfb_1_1_DW01_add_5
+uut2/uut/add_40                      501.2742      0.5    501.2742      0.0000  0.0000  hfb_1_1_DW01_add_13
+uut2/uut/add_40_I2                   497.7441      0.5    497.7441      0.0000  0.0000  hfb_1_1_DW01_add_2
+uut2/uut/add_40_I3                   497.7441      0.5    497.7441      0.0000  0.0000  hfb_1_1_DW01_add_1
+uut2/uut/add_40_I4                   497.7441      0.5    497.7441      0.0000  0.0000  hfb_1_1_DW01_add_0
+uut2/uut/add_40_I5                   497.7441      0.5    497.7441      0.0000  0.0000  hfb_1_1_DW01_add_14
+uut2/uut/add_40_I6                   497.7441      0.5    497.7441      0.0000  0.0000  hfb_1_1_DW01_add_15
+uut2/uut/add_40_I7                   497.7441      0.5    497.7441      0.0000  0.0000  hfb_1_1_DW01_add_16
+uut2/uut/add_40_I8                   497.7441      0.5    497.7441      0.0000  0.0000  hfb_1_1_DW01_add_17
+uut2/uut/add_5_root_add_40_2_I8      571.8762      0.5    571.8762      0.0000  0.0000  hfb_1_1_DW01_add_7
+uut2/uut/add_7_root_add_40_2_I8      689.5462      0.6    689.5462      0.0000  0.0000  hfb_1_1_DW01_add_6
+uut2/uut/add_8_root_add_40_2_I8      541.2820      0.5    541.2820      0.0000  0.0000  hfb_1_1_DW01_add_8
+uut2/uut/mult_40_I5                 1270.8360      1.2    649.5384      0.0000  0.0000  hfb_1_1_DW02_mult_0
+uut2/uut/mult_40_I5/FS_1             621.2976      0.6    621.2976      0.0000  0.0000  hfb_1_1_DW01_add_9
+uut2/uut/mult_40_I6                 1872.1297      1.7   1340.2613      0.0000  0.0000  hfb_1_1_DW02_mult_1
+uut2/uut/mult_40_I6/FS_1             531.8684      0.5    531.8684      0.0000  0.0000  hfb_1_1_DW01_add_10
+uut2/uut/mult_40_I7                 2766.4217      2.5   2188.6620      0.0000  0.0000  hfb_1_1_DW02_mult_2
+uut2/uut/mult_40_I7/FS_1             577.7597      0.5    577.7597      0.0000  0.0000  hfb_1_1_DW01_add_11
+uut2/uut/mult_40_I8                 2129.8270      1.9   1593.2518      0.0000  0.0000  hfb_1_1_DW02_mult_3
+uut2/uut/mult_40_I8/FS_1             536.5752      0.5    536.5752      0.0000  0.0000  hfb_1_1_DW01_add_12
+uut2/uut/sub_3_root_add_2_root_add_40_2_I8
+                                     803.6861      0.7    803.6861      0.0000  0.0000  hfb_1_1_DW01_sub_0
+uut2/uut1                             34.1243      0.0      0.0000     34.1243  0.0000  counter_test_1
+uut2/uut2                          11356.3318     10.3   4106.6830   1581.4849  0.0000  up4_filter_test_2
+uut2/uut2/add_0_root_add_0_root_add_34_4
+                                     511.8645      0.5    511.8645      0.0000  0.0000  up4_filter_2_DW01_add_1
+uut2/uut2/add_0_root_add_0_root_add_38_6
+                                     537.7519      0.5    537.7519      0.0000  0.0000  up4_filter_2_DW01_add_11
+uut2/uut2/add_0_root_add_0_root_add_42_4
+                                     524.8082      0.5    524.8082      0.0000  0.0000  up4_filter_2_DW01_add_8
+uut2/uut2/add_0_root_sub_0_root_add_30_3
+                                     545.9888      0.5    545.9888      0.0000  0.0000  up4_filter_2_DW01_add_5
+uut2/uut2/add_1_root_add_0_root_add_34_4
+                                     593.0568      0.5    593.0568      0.0000  0.0000  up4_filter_2_DW01_add_3
+uut2/uut2/add_1_root_add_0_root_add_38_6
+                                     594.2335      0.5    594.2335      0.0000  0.0000  up4_filter_2_DW01_add_13
+uut2/uut2/add_1_root_add_0_root_add_42_4
+                                     567.1694      0.5    567.1694      0.0000  0.0000  up4_filter_2_DW01_add_9
+uut2/uut2/add_1_root_sub_0_root_add_30_3
+                                     654.2452      0.6    654.2452      0.0000  0.0000  up4_filter_2_DW01_add_6
+uut2/uut2/add_2_root_add_0_root_add_38_6
+                                     571.8762      0.5    571.8762      0.0000  0.0000  up4_filter_2_DW01_add_12
+uut2/uut2/add_3_root_add_0_root_add_38_6
+                                     567.1694      0.5    567.1694      0.0000  0.0000  up4_filter_2_DW01_add_14
+uut2/uut3                             81.1923      0.1     15.2971     65.8952  0.0000  counter2bit_test_2
+uut2/uut4                            335.3595      0.3    335.3595      0.0000  0.0000  mux4to1_2
+uut2/uut5                          11225.7181     10.2   2886.4451   1581.4849  0.0000  up4_filter_test_3
+uut2/uut5/add_0_root_add_0_root_add_34_4
+                                     520.1014      0.5    520.1014      0.0000  0.0000  up4_filter_1_DW01_add_1
+uut2/uut5/add_0_root_add_0_root_add_38_6
+                                     537.7519      0.5    537.7519      0.0000  0.0000  up4_filter_1_DW01_add_12
+uut2/uut5/add_0_root_add_0_root_add_42_4
+                                     524.8082      0.5    524.8082      0.0000  0.0000  up4_filter_1_DW01_add_5
+uut2/uut5/add_0_root_sub_0_root_add_30_3
+                                     545.9888      0.5    545.9888      0.0000  0.0000  up4_filter_1_DW01_add_8
+uut2/uut5/add_1_root_add_0_root_add_34_4
+                                     567.1694      0.5    567.1694      0.0000  0.0000  up4_filter_1_DW01_add_2
+uut2/uut5/add_1_root_add_0_root_add_38_6
+                                     594.2335      0.5    594.2335      0.0000  0.0000  up4_filter_1_DW01_add_13
+uut2/uut5/add_1_root_add_0_root_add_42_4
+                                     567.1694      0.5    567.1694      0.0000  0.0000  up4_filter_1_DW01_add_6
+uut2/uut5/add_2_root_add_0_root_add_38_6
+                                     571.8762      0.5    571.8762      0.0000  0.0000  up4_filter_1_DW01_add_14
+uut2/uut5/add_2_root_sub_0_root_add_30_3
+                                     524.8082      0.5    524.8082      0.0000  0.0000  up4_filter_1_DW01_add_10
+uut2/uut5/add_3_root_add_0_root_add_38_6
+                                     567.1694      0.5    567.1694      0.0000  0.0000  up4_filter_1_DW01_add_15
+uut2/uut5/add_4_root_sub_0_root_add_30_3
+                                     521.2781      0.5    521.2781      0.0000  0.0000  up4_filter_1_DW01_add_11
+uut2/uut5/sub_1_root_sub_0_root_add_30_3
+                                     715.4336      0.6    715.4336      0.0000  0.0000  up4_filter_1_DW01_sub_0
+uut2/uut6                             81.1923      0.1     15.2971     65.8952  0.0000  counter2bit_test_3
+uut2/uut7                            335.3595      0.3    335.3595      0.0000  0.0000  mux4to1_1
+uut3                                2855.8510      2.6    530.6917   1219.0612  0.0000  segma_test_0
+uut3/add_0_root_sub_0_root_sub_16    528.3383      0.5    528.3383      0.0000  0.0000  segma_0_DW01_add_0
+uut3/sub_1_root_sub_0_root_sub_16    577.7597      0.5    577.7597      0.0000  0.0000  segma_0_DW01_sub_1
+uut4                                2855.8510      2.6    530.6917   1219.0612  0.0000  segma_test_1
+uut4/add_0_root_sub_0_root_sub_16    528.3383      0.5    528.3383      0.0000  0.0000  segma_1_DW01_add_0
+uut4/sub_1_root_sub_0_root_sub_16    577.7597      0.5    577.7597      0.0000  0.0000  segma_1_DW01_sub_1
+uut5                                 247.1070      0.2     82.3690    164.7380  0.0000  DUC_test_1
+--------------------------------  -----------  -------  ----------  ----------  ------  ------------------------
+Total                                                   80713.3836  29715.2063  0.0000
+
+1
